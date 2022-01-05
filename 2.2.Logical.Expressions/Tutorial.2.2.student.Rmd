@@ -1,0 +1,258 @@
+---
+title: "2.2 Logical Expressions - Tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+
+library(ottr)
+library(testthat)
+```
+
+---
+
+At the end of this tutorial you should be able to:
+
+*Write logical expressions using comparison operators
+*Write logical expressions using logical operators
+*Write logical expressions combining multiple comparison and logical operators
+*Understand precedence of comparison and logical operators
+
+---
+
+*NOTE* There will not be a section for  2.2.2: Logical Operators as the concepts are covered in section 2.2.3: Applying Logical Operators.
+
+---
+
+## 2.2.1: Comparison Operators
+
+---
+
+Use comparison operators to write and execute a piece of code answering the following true or false questions.
+
+Is 3 greater than or equal to -10? Assign the return value of the logical expression to a variable named "comparison_1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.1.a.R")
+```
+**Check your answer by running the above block** 
+
+Is x less than y? Assign the return value of the logical expression to a variable named "comparison_2".
+```{r}
+x <- 102
+y <- 102
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.1.b.R")
+```
+**Check your answer by running the above block** 
+
+Is 5 plus 10 the same as 10 plus 5? Assign the return value of the logical expression to a variable named "is.addition.commutative".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.1.c.R")
+```
+**Check your answer by running the above block** 
+
+Is 5 divided by 10 the same as 10 divided by 5? Assign the return value of the logical expression to a variable named "is.division.commutative".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.1.d.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+## 2.2.3: Applying Logical Operators
+
+---
+
+Here are two sample descriptions:
+
+```{r}
+sample1_description <- "Protein extracted from HeLa cells"
+sample2_description <- "Protein extracted from K562 cells"
+```
+
+Use the `grepl()` function to answer the following questions about these two samples.
+
+a. Is sample 1 derived from HeLa cells? Assign the return value to a variable named "sample1_HeLa".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.3.a.R")
+```
+**Check your answer by running the above block** 
+
+b. Is sample 2 not derived from HeLa cells? Assign the return value to a variable named "sample2_not_HeLa".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.3.b.R")
+```
+**Check your answer by running the above block** 
+
+c. Are sample 1 and sample 2 protein extracts? Assign the return value to a variable named "both_samples_protein".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.3.c.R")
+```
+**Check your answer by running the above block** 
+
+d. Are sample 1 and sample 2 derived from K562 cells? Assign the return value to a variable named "both_samples_K562".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.3.d.R")
+```
+**Check your answer by running the above block** 
+
+e. Are sample 1 or sample 2 derived from K562 cells? Assign the return value to a variable named "any_samples_K562".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.3.e.R")
+```
+**Check your answer by running the above block** 
+
+Consider: Why did questions d & e have different results? (The variable names will give you a hint!)
+
+---
+
+## 2.2.4: Complex Logical Expressions
+
+---
+
+The next set of questions will use data from the following scenario. 
+
+A scientist has performed RNA-seq on three different cell lines to check if they are pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. For each cell they measured the expression of the three transcription factors in RPKM*. 
+
+*RPKM (reads per kilobase million) is a measurement of the expression level of gene transcripts normalized by the total number of RNA sequencing reads from a sample and the length of individual gene transcripts. RPKM measurements allow comparison of expression levels within a sample and between samples.
+
+The expression levels for each of the transcription factors are store in variables in the format "CL_#_TFNAME" (CL for cell line): 
+
+```{r}
+CL_1_OCT4 <- 1.89
+CL_1_NANOG <- 2.11
+CL_1_SOX2 <- 1.87
+CL_2_OCT4 <- 1.35
+CL_2_NANOG <- 0.92
+CL_2_SOX2 <- 0.11
+CL_3_OCT4 <- 2.33
+CL_3_NANOG <- 2.86
+CL_3_SOX2 <- 2.07
+```
+
+The scientist uses the following threshold for determining if there is enough expression of each transcription factor for it to be pluripotent:
+
+```{r}
+threshold <- 1
+```
+
+If the expression level passes the threshold (is greater than or equal the threshold), it is considered to be expressed.
+
+Check if the expression of ANY of the three transcription factors passes the threshold for cell line 1 (CL_1). Assign the return value of the logical expression to a variable named "any_gene_expressed_CL_1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.a.R")
+```
+**Check your answer by running the above block** 
+
+Check if OCT4 is expressed (passes the threshold) for ALL cell lines. Assign the return value of the logical expression to a variable named "OCT4_expressed_in_all".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.b.R")
+```
+**Check your answer by running the above block** 
+
+Does NANOG *NOT* pass the threshold for any of the three cell lines? Assign the return value of the logical expression to a variable named "NANOG_not_expressed_in_all".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.c.R")
+```
+**Check your answer by running the above block** 
+
+Does SOX2 pass the threshold for cell line 1 *OR* cell line 3 *AND* does SOX2 *NOT* pass the threshold for cell line 2? (In other words: "Is SOX2 expressed in at least one of cell 1 or 3, and does SOX2 not expressed in cell line 2?") Assign the return value of the logical expression to a variable named "SOX2_expression".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.d.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+The scientist only labels cell lines as pluriplotent if all three genes (OCT4, NANOG, and SOX2) pass the threshold. 
+
+Write a logical expression to answer the following question:
+Is cell line 3 pluripotent? Assign the return value of the logical expression to a variable named "CL_3_pluripotent".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.e.R")
+```
+**Check your answer by running the above block** 
+
+Write a logical expression to answer the following question:
+Are any of the 3 cell lines not pluripotent? Assign the return value of the logical expression to a variable named "any_not_pluripotent".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.2.4.f.R")
+```
+**Check your answer by running the above block** 
+
+---

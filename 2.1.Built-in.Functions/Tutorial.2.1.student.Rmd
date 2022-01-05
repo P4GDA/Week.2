@@ -1,0 +1,301 @@
+---
+title: "2.1 Built-in Functions - Tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+
+library(ottr)
+library(testthat)
+```
+
+---
+
+At the end of this tutorial you should be able to:
+
+* Pass arguments to built-in functions
+* Understand the difference between required and optional arguments
+* Bring up the help page for a function
+* Use arguments in the correct order
+* Apply functions in a nested manner
+
+---
+
+## 2.1.1: Introduction to Functions
+
+---
+
+Take the square root of 196 using the `sqrt()` function and assign it to a variable named "sqrt_196".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.1.a.R")
+```
+**Check your answer by running the above block** 
+
+Another mathematical function that only takes numeric values is `abs()` which returns the absolute value of a number. Take the absolute value of the variable `x` defined below. Assign the return value of the function to a variable named "abs_x".
+```{r}
+x <- -5894
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.1.b.R")
+```
+**Check your answer by running the above block** 
+
+The function `toupper()` converts all the letters in a character value to uppercase. Convert all the letters in the `DNA_sequence` to uppercase. Assign the return value to a variable named "DNA_sequence_upper".
+```{r}
+DNA_sequence <- "acgCTACGTCcgcttCAG"
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.1.c.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+## 2.1.2: Function Arguments
+
+---
+
+Round 62.8394817 to 4 digits after the decimal point. Assign the return value to a variable named "round_1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.a.R")
+```
+**Check your answer by running the above block** 
+
+Round 62.8394817 to 0 digits after the decimal point. Use only one argument. Assign the return value to a variable named "round_2".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.b.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+Below is a variable named `nt_sequence` which contains a DNA sequence. Replace all the "T"s with "U"s to convert it to an RNA sequence. Use the `gsub()` function to convert the sequence and assign the return value to a variable named "RNA_sequence".
+```{r}
+nt_sequence <- "ACTATCAGCTAGGACTTACG"
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.c.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+Explore the `log()` function. First use the `?` to pull up the help page for the `log()` function. *This question will not be autograded.*
+
+```{r}
+# Write and execute your code here
+
+```
+
+Look at the "Description", the "Usage", and the "Arguments" sections. After looking at these, take the log of 64 in base 4 and assign it to a variable named "log_4_64".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.d.R")
+```
+**Check your answer by running the above block** 
+
+Which of the arguments is required? Which is optional? What is the default value of the optional argument? Note that `exp(1)` is the natural number (e) in R.
+
+Using your answers to the previous questions, take the natural logarithm of 10000 using the `log()` function with only one argument. Assign the return value to a variable named "natural_log".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.e.R")
+```
+**Check your answer by running the above block** 
+
+Other functions are also described on the same page, including `log10()`. How many arguments does `log10()` take? Are they required or optional? Use the function to get the log of 1 million in base 10. Assign the return value to a variable named "log_10_million".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.2.f.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+## 2.1.3: Nested Functions
+
+---
+
+Let's start by practicing nesting functions.
+
+Get the type of the return value of `log(38438)` by nesting `log(38438)` within the `typeof()` function. The `typeof()` function returns a character value indicating the type ("logical", "character", "double") of the argument. Assign the return value of the nested functions to a variable named "nest_1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.a.R")
+```
+**Check your answer by running the above block** 
+
+Use the square root of 45.37 rounded to 0 digits as the base to take the log of 16807. Do this in one line of code by nesting the three necessary functions. Assign the return value of the nested functions to a variable named "nest_2".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.b.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+Now, we will look at real biological data to see the utility of built-in functions.
+
+The function `substr()` in R extracts a "substring" from a character value, in other words in extracts a portion of a character value from one position in the string to another. 
+
+Pull up the help page for the `substr()` function. *This question will not be autograded.*
+
+```{r}
+# Write and execute your code here
+
+```
+
+Are all three arguments required? What type of values do you need to use? 
+
+This is the full coding sequence (CDS) of the RBFOX1 gene. Execute the code block so that you can use the variable in the next questions.
+
+```{r}
+RBFOX1_CDS <- "ATGAATTGTGAAAGAGAGCAGCTAAGGGGTAATCAGGAAGCAGCCGCTGCCCCTGACACAATGGCTCAGCCTTACGCTTCGGCCCAGTTTGCTCCCCCGCAGAACGGTATCCCCGCGGAATACACGGCCCCTCATCCCCACCCCGCGCCAGAGTACACAGGCCAGACCACGGTTCCCGAGCACACATTAAACCTGTACCCTCCCGCCCAGACGCACTCCGAGCAGAGCCCGGCGGACACGAGCGCTCAGACCGTCTCTGGCACCGCCACACAGACAGATGACGCAGCACCGACGGATGGCCAGCCCCAGACACAACCTTCTGAAAACACGGAAAACAAGTCTCAGCCCAAGCGGCTGCATGTCTCCAATATCCCCTTCAGGTTCCGGGATCCGGACCTCAGACAAATGTTTGGTCAATTTGGTAAAATCTTAGATGTTGAAATTATTTTTAATGAGCGAGGCTCAAAGGGATTTGGTTTCGTAACTTTCGAAAATAGTGCCGATGCGGACAGGGCGAGGGAGAAATTACACGGCACCGTGGTAGAGGGCCGTAAAATCGAGGTAAATAATGCCACAGCACGTGTAATGACAAATAAAAAGACCGTCAACCCTTATACAAATGGCTGGAAATTGAATCCAGTTGTGGGTGCAGTCTACAGTCCCGAATTCTATGCAGTGCCAGGCTTCCCGTATCCAGCAGCCACCGCCGCGGCCGCCTACCGAGGGGCGCACCTGCGAGGCCGCGGTCGCACCGTGTACAACACCTTCAGGGCCGCGGCGCCCCCGCCCCCGATCCCGGCCTACGGCGGTGTTGTTTACCAGGATGGATTTTATGGTGCAGACATTTATGGTGGTTATGCTGCATACCGCTACGCCCAGCCTACCCCTGCCACTGCCGCTGCCTACAGTGACAGTTACGGACGAGTTTATGCTGCCGACCCCTACCACCACGCACTTGCTCCAGCCCCCACCTACGGCGTTGGTGCCATGAATGCTTTTGCACCTTTGACTGATGCCAAGACTAGGAGCCATGCTGATGATGTGGGTCTCGTTCTTTCTTCATTGCAGGCTAGTATATACCGAGGGGGATACAACCGTTTTGCTCCATACTAA"
+```
+
+Use the `substr()` function to retrieve the start codon - the first to the third nucleotides. Assign the return value to a variable named "first_codon".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.c.R")
+```
+**Check your answer by running the above block** 
+
+The `nchar()` function counts the number individual characters in a character value. Pull up the help page. *This question will not be autograded.*
+: Tutorial.W2.1.3.
+
+```{r}
+# Write and execute your code here
+
+```
+
+Use `nchar()` to determine the number of nucleotides in the RBFOX1 CDS. Assign the return value to a variable named "nucleotides_in_RBFOX1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.d.R")
+```
+**Check your answer by running the above block** 
+
+Nest the `nchar()` function inside the `substr()` function to retrieve the stop codon in the RBFOX1 CDS (the 3 nucleotides). Assign the return value to a variable named "stop_codon".
+Hint: You will need to use the `nchar()` function to get the values for the second and third arguments. 
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.e.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+Let's examine another practical situation for using functions.
+
+You have a plasmid that contains a copy of the RBFOX1 CDS. You need to do a restriction digest to fragment the DNA without cutting the DNA within the CDS. 
+
+| Restriction Enzyme | Recognition Sequence | 
+| ------------------ | -------------------- | 
+| EcoRI              | GAATTC               | 
+| BamHI              | GGATCC               | 
+| SmaI               | CCCGGG               | 
+
+For a restriction enzyme to be usable for the digest, the RBFOX1 CDS must NOT contain the recognition sequence. 
+
+Description: checks for the presence of a pattern in a character value
+Usage: `grepl(pattern, x)`
+Arguments: `pattern` - character value to find
+           `x` - character value to search
+Return value: logical indicating whether `pattern` is present in `x`
+
+Use `grepl()` to check if any of the restriction enzymes will work for the digest.
+
+Check if the EcoRI recognition sequence is the RBFOX1 CDS. Assign the return value of the function to a variable named "EcoRI_seq_in_RBFOX1".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.f.R")
+```
+**Check your answer by running the above block** 
+
+Check the BamHI recognition sequence. *This question will not be autograded.*
+
+```{r}
+# Write and execute your code here
+
+```
+
+Check the SmaI recognition sequence. *This question will not be autograded.*
+
+```{r}
+# Write and execute your code here
+
+```
+
+Which of the three restriction enzymes will work for the restriction digest? Assign the name of the restriction enzyme ("EcoRI", "BamHI", or "SmaI") to a variable named "RBFOX1_restriction_enzyme".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.1.3.g.R")
+```
+**Check your answer by running the above block** 
+
+---

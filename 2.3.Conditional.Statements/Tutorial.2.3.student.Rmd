@@ -1,0 +1,267 @@
+---
+title: "2.3 Conditional Statements - Tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+
+library(ottr)
+library(testthat)
+```
+
+---
+
+At the end of this tutorial you should be able to:
+
+*Implement if statements
+*Implement if-else statements
+*Implement if-else if-else statements
+*Nest conditional statements within one another
+*Apply conditional statements to data
+
+---
+
+## 2.3.1: If & If-else Statements
+
+---
+
+“The IMPC is an international effort by 21 research institutions to identify the function of every protein-coding gene in the mouse genome.” (https://www.mousephenotype.org) To achieve this the IMPC knocks out each mouse gene individually and uses a panel of hundreds of standardized tests to assess mouse phenotypes, this includes, but is not limited to: assessment of behavioural tendencies, x-rays to examine the skeletal system, blood tests, and observations of morphological differences. These can be compared to control to determine which phenotypes are affected by the knocked out gene.
+
+In this tutorial we will work with data for 4 mice with the Ap4e1 gene knocked out (mutant mice), and data for 4 control mice. This table shows the results of a test to assess the hemoglobin content (in g/dL) along with an ID number, mouse sex, and group (mutant or control). 
+(Data from: https://www.mousephenotype.org)
+
+| ID # | Sex    | Group   | Hemoglobin (g/dL) |
+| ---- | ------ | ------- | ----------------- |
+| 1    | female | mutant  | 14.9              |
+| 2    | female | mutant  | 15.1              |
+| 3    | male   | mutant  | 14.6              |
+| 4    | male   | mutant  | 15.2              |
+| 5    | female | control | 13.4              |
+| 6    | female | control | 13.9              |
+| 7    | male   | control | 13.4              |
+| 8    | male   | control | 14.9              |
+
+Below the variables you will work with in this tutorial are defined. The sex of each mouse is saved as "mouse_ID#_sex", the group as "mouse_ID#_group", and the hemoglobin content as "mouse_ID#_hemo".
+
+```{r}
+mouse_1_sex <- "female"
+mouse_1_group <- "mutant"
+mouse_1_hemo <- 14.9
+mouse_2_sex <- "female"
+mouse_2_group <- "mutant"
+mouse_2_hemo <- 15.1
+mouse_3_sex <- "male"
+mouse_3_group <- "mutant"
+mouse_3_hemo <- 14.6
+mouse_4_sex <- "male"
+mouse_4_group <- "mutant"
+mouse_4_hemo <- 15.2
+mouse_5_sex <- "female"
+mouse_5_group <- "control"
+mouse_5_hemo <- 13.4
+mouse_6_sex <- "female"
+mouse_6_group <- "control"
+mouse_6_hemo <- 13.9
+mouse_7_sex <- "male"
+mouse_7_group <- "control"
+mouse_7_hemo <- 13.4
+mouse_8_sex <- "male"
+mouse_8_group <- "control"
+mouse_8_hemo <- 14.9
+```
+
+Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `q.1.a <-` or the otter grader will not be able to check your answer.
+```{r}
+q.1.a <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.a.R")
+```
+**Check your answer by running the above block** 
+
+Write an if statement to check if mouse 7 has a hemoglobin content greater than 15 g/dL and if so, assigns the value "high" to a variable named "hemo_content".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.b.R")
+```
+**Check your answer by running the above block** 
+
+Write an if statement to check if mouse 4 is male AND is a mutant mouse, if so print the hemoglobin content of the mouse. Do not alter the line containing the code `q.1.c <-` or the otter grader will not be able to check your answer.
+```{r}
+q.1.c <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.c.R")
+```
+**Check your answer by running the above block** 
+
+Write an if-else statement that checks if mouse 6 is a mutant. If the mouse is a mutant, print "Mutant mouse", if it is not a mutant, print "Control mouse". Do not alter the line containing the code `q.1.d <-` or the otter grader will not be able to check your answer.
+```{r}
+q.1.d <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.d.R")
+```
+**Check your answer by running the above block** 
+
+Write an if-else statement that checks if mouse 2 is a male. If the mouse is a male, assign the value "M" to a variable named "sex", if it is not, assign the value "F" to a variable named "sex".
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.e.R")
+```
+**Check your answer by running the above block** 
+
+The mean hemoglobin content is 14.95 for mutant mice and 13.9 for control mice.
+
+Write an if-else statement that will:
+- Assign the absolute value of the difference between the mean MUTANT hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff.from.group.mean", IF the mouse is a MUTANT mouse.
+- Assign the absolute value of the difference between the mean CONTROL hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff.from.group.mean", IF the mouse is a CONTROL mouse.
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.1.f.R")
+```
+**Check your answer by running the above block** 
+
+---
+
+## 2.3.2: If-else if-else Statements
+
+---
+
+Write an if-else-if-else statement that does the following:
+If mouse 4 has a hemoglobin content < 14 g/dl, print "Hemoglobin < 14 g/dL".
+Else, if mouse 4 has a hemoglobin content >= 14 g/dl and < 15 g/dl, print "Hemoglobin >= 14 g/dL and < 15 g/dL". 
+Else, print "Hemoglobin >= 15 g/dL."
+
+Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=`. Do not alter the line containing the code `q.2.a <-` or the otter grader will not be able to check your answer.
+```{r}
+q.2.a <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.2.a.R")
+```
+**Check your answer by running the above block** 
+
+Why don't you need to use the logical expression `mouse_4_hemo >= 14 & mouse_4_hemo < 15`?
+
+There are 4 possible combinations of mouse sex and group (4 mutually exclusive possibilities!):
+
+- female mutant
+- male mutant
+- female control
+- male control
+
+Write an if-else if-else statement that will check which of these 4 possibilities fits mouse 7 and saves it to a variable called "category". For example, if mouse 7 is a female mutant, `category <- "female mutant"`, etc. 
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.2.b.R")
+```
+**Check your answer by running the above block** 
+
+Examine the following if-else if-else statement.
+
+```{r}
+if (mouse_3_sex == "male") {
+  print("Male mouse")
+} else if (mouse_3_sex == "female") {
+  print("Female mouse")
+} else if (mouse_3_group == "mutant") {
+  print("Mutant mouse")
+} else {
+  print("Control mouse")
+}
+```
+
+Answer the following questions:
+
+- Which logical expressions would return `TRUE`?
+- Which logical expression would return `TRUE` but the following code chunk is not executed? Why isn't it executed?
+- Which print statements will never be run no matter which mouse you use?
+- After answering all of these questions: what is wrong with this if-else if-else statement?
+
+---
+
+## 2.3.3: Nested Conditional Statements
+
+---
+
+Write an if statement nested within another if statement. If mouse 5 is female, check if mouse 5 is a control mouse, and then print "Mouse is a female control". Do not alter the line containing the code `q.3.a <-` or the otter grader will not be able to check your answer.
+```{r}
+q.3.a <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.3.a.R")
+```
+**Check your answer by running the above block** 
+
+Write an if-else if-else statement nested within an if statement. The if statement should check if mouse 1 is a mutant, if it is, then an if-else if-else statement should check if the mouse has a hemoglobin content:
+- less than 14 (if so, print "hemoglobin < 14")
+- greater than or equal to 14 and less than 15 (if so, print "14 <= hemoglobin < 15")
+- or greater than 15 (if so, print "hemoglobin >= 15")
+If the mouse is not a mutant, nothing should be printed.
+
+Do not alter the line containing the code `q.3.b <-` or the otter grader will not be able to check your answer.
+```{r}
+q.3.b <-
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.3.b.R")
+```
+**Check your answer by running the above block** 
+
+Use one or more conditional statements to write code that does the following:
+- Checks if mouse 8 is a mutant mouse or a control mouse, and calculates the absolute value of the difference from the group's mean hemoglobin content. This value should be assigned to a variable named "diff.from.group.mean" 
+- If the absolute value of the difference is > 1 standard deviation away from the group mean, the value `TRUE` is assigned to a variable named "over.1.sd", otherwise the value `FALSE` is assigned to a variable named "over.1.sd".
+
+Necessary values for calculations:
+
+| group   | mean  | standard deviation |
+| ------- | ----- | ------------------ |
+| mutant  | 14.95 | 0.26               |
+| control | 13.9  | 0.71               |
+```{r}
+# Write and execute your code here
+
+```
+
+```{r}
+. = ottr::check("tests/Tutorial.W2.3.3.c.R")
+```
+**Check your answer by running the above block** 
+
+---
