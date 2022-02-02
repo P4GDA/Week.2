@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -21,7 +22,7 @@ At the end of this tutorial you should be able to:
 
 ---
 
-*NOTE* There will not be a section for  2.2.2: Logical Operators as the concepts are covered in section 2.2.3: Applying Logical Operators.
+*NOTE* There will not be a section for 2.2.2: Logical Operators as the concepts are covered in section 2.2.3: Applying Logical Operators.
 
 ---
 
@@ -161,7 +162,7 @@ A scientist has performed RNA-seq on three different cell lines to check if they
 
 *RPKM (reads per kilobase million) is a measurement of the expression level of gene transcripts normalized by the total number of RNA sequencing reads from a sample and the length of individual gene transcripts. RPKM measurements allow comparison of expression levels within a sample and between samples.
 
-The expression levels for each of the transcription factors are store in variables in the format "CL_#_TFNAME" (CL for cell line): 
+The expression levels for each of the transcription factors are stored in variables in the format "CL_#_TFNAME" (CL for cell line): 
 
 ```{r}
 CL_1_OCT4 <- 1.89

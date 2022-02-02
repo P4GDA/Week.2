@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -71,7 +72,7 @@ mouse_8_group <- "control"
 mouse_8_hemo <- 14.9
 ```
 
-Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `q.1.a <-` or the otter grader will not be able to check your answer.
+Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `q.1.a <-` or otter grader will not be able to check your answer.
 ```{r}
 q.1.a <-
 # Write and execute your code here
@@ -155,7 +156,7 @@ If mouse 4 has a hemoglobin content < 14 g/dl, print "Hemoglobin < 14 g/dL".
 Else, if mouse 4 has a hemoglobin content >= 14 g/dl and < 15 g/dl, print "Hemoglobin >= 14 g/dL and < 15 g/dL". 
 Else, print "Hemoglobin >= 15 g/dL."
 
-Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=`. Do not alter the line containing the code `q.2.a <-` or the otter grader will not be able to check your answer.
+Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=` in your code (`>` and `>=` can appear in your print statements). Do not alter the line containing the code `q.2.a <-` or the otter grader will not be able to check your answer.
 ```{r}
 q.2.a <-
 # Write and execute your code here
@@ -203,8 +204,8 @@ if (mouse_3_sex == "male") {
 
 Answer the following questions:
 
-- Which logical expressions would return `TRUE`?
-- Which logical expression would return `TRUE` but the following code chunk is not executed? Why isn't it executed?
+- Which logical expressions in the statement would return `TRUE`?
+- Which logical expression in the statement would return `TRUE` but the following code chunk is not executed? Why isn't it executed?
 - Which print statements will never be run no matter which mouse you use?
 - After answering all of these questions: what is wrong with this if-else if-else statement?
 
@@ -226,13 +227,13 @@ q.3.a <-
 ```
 **Check your answer by running the above block** 
 
-Write an if-else if-else statement nested within an if statement. The if statement should check if mouse 1 is a mutant, if it is, then an if-else if-else statement should check if the mouse has a hemoglobin content:
+Write an if-else if-else statement nested within an if statement. The if statement should check if mouse 1 is a mutant, and if it is, then an if-else if-else statement should check if the mouse has a hemoglobin content:
 - less than 14 (if so, print "hemoglobin < 14")
 - greater than or equal to 14 and less than 15 (if so, print "14 <= hemoglobin < 15")
 - or greater than 15 (if so, print "hemoglobin >= 15")
 If the mouse is not a mutant, nothing should be printed.
 
-Do not alter the line containing the code `q.3.b <-` or the otter grader will not be able to check your answer.
+Do not alter the line containing the code `q.3.b <-` or otter grader will not be able to check your answer.
 ```{r}
 q.3.b <-
 # Write and execute your code here

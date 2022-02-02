@@ -9,6 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 library(ottr)
 library(testthat)
 ```
+**Run the above block to load required packages**
 
 ---
 
@@ -91,7 +92,7 @@ Round 62.8394817 to 0 digits after the decimal point. Use only one argument. Ass
 
 ---
 
-Below is a variable named `nt_sequence` which contains a DNA sequence. Replace all the "T"s with "U"s to convert it to an RNA sequence. Use the `gsub()` function to convert the sequence and assign the return value to a variable named "RNA_sequence".
+Below is a variable named `nt_sequence` which contains a DNA sequence. Replace all the "T"s with "U"s to convert it to an RNA sequence. Use the `gsub()` function to convert the sequence and assign the return value to a variable named "RNA_sequence". Be sure to use the variable `nt_sequence` in your code.
 ```{r}
 nt_sequence <- "ACTATCAGCTAGGACTTACG"
 # Write and execute your code here
