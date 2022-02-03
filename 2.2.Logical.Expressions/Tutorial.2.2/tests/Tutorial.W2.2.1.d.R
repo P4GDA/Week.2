@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_false(is.division.commutative)
+        expect_false(is_division_commutative)
       }
     )
   )

@@ -6,8 +6,8 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(diff.from.group.mean, 1)
-        expect_equal(over.1.sd, TRUE)
+        expect_equal(diff_from_group_mean, 1)
+        expect_equal(over_1_sd, TRUE)
       }
     )
   )

@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(diff.from.group.mean, 0.5)
+        expect_equal(diff_from_group_mean, 0.5)
       }
     )
   )

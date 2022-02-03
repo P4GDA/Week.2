@@ -28,6 +28,7 @@ At the end of this tutorial you should be able to:
 ---
 
 Take the square root of 196 using the `sqrt()` function and assign it to a variable named "sqrt_196".
+
 ```{r}
 # Write and execute your code here
 
@@ -39,6 +40,7 @@ Take the square root of 196 using the `sqrt()` function and assign it to a varia
 **Check your answer by running the above block** 
 
 Another mathematical function that only takes numeric values is `abs()` which returns the absolute value of a number. Take the absolute value of the variable `x` defined below. Assign the return value of the function to a variable named "abs_x".
+
 ```{r}
 x <- -5894
 # Write and execute your code here
@@ -51,6 +53,7 @@ x <- -5894
 **Check your answer by running the above block** 
 
 The function `toupper()` converts all the letters in a character value to uppercase. Convert all the letters in the `DNA_sequence` to uppercase. Assign the return value to a variable named "DNA_sequence_upper".
+
 ```{r}
 DNA_sequence <- "acgCTACGTCcgcttCAG"
 # Write and execute your code here
@@ -69,6 +72,7 @@ DNA_sequence <- "acgCTACGTCcgcttCAG"
 ---
 
 Round 62.8394817 to 4 digits after the decimal point. Assign the return value to a variable named "round_1".
+
 ```{r}
 # Write and execute your code here
 
@@ -80,6 +84,7 @@ Round 62.8394817 to 4 digits after the decimal point. Assign the return value to
 **Check your answer by running the above block** 
 
 Round 62.8394817 to 0 digits after the decimal point. Use only one argument. Assign the return value to a variable named "round_2".
+
 ```{r}
 # Write and execute your code here
 
@@ -93,6 +98,7 @@ Round 62.8394817 to 0 digits after the decimal point. Use only one argument. Ass
 ---
 
 Below is a variable named `nt_sequence` which contains a DNA sequence. Replace all the "T"s with "U"s to convert it to an RNA sequence. Use the `gsub()` function to convert the sequence and assign the return value to a variable named "RNA_sequence". Be sure to use the variable `nt_sequence` in your code.
+
 ```{r}
 nt_sequence <- "ACTATCAGCTAGGACTTACG"
 # Write and execute your code here
@@ -106,7 +112,7 @@ nt_sequence <- "ACTATCAGCTAGGACTTACG"
 
 ---
 
-Explore the `log()` function. First use the `?` to pull up the help page for the `log()` function. *This question will not be autograded.*
+Explore the `log()` function. First use the `?` to pull up the help page for the `log()` function. *This question will not have auto-tests.*
 
 ```{r}
 # Write and execute your code here
@@ -114,6 +120,7 @@ Explore the `log()` function. First use the `?` to pull up the help page for the
 ```
 
 Look at the "Description", the "Usage", and the "Arguments" sections. After looking at these, take the log of 64 in base 4 and assign it to a variable named "log_4_64".
+
 ```{r}
 # Write and execute your code here
 
@@ -127,6 +134,7 @@ Look at the "Description", the "Usage", and the "Arguments" sections. After look
 Which of the arguments is required? Which is optional? What is the default value of the optional argument? Note that `exp(1)` is the natural number (e) in R.
 
 Using your answers to the previous questions, take the natural logarithm of 10000 using the `log()` function with only one argument. Assign the return value to a variable named "natural_log".
+
 ```{r}
 # Write and execute your code here
 
@@ -138,6 +146,7 @@ Using your answers to the previous questions, take the natural logarithm of 1000
 **Check your answer by running the above block** 
 
 Other functions are also described on the same page, including `log10()`. How many arguments does `log10()` take? Are they required or optional? Use the function to get the log of 1 million in base 10. Assign the return value to a variable named "log_10_million".
+
 ```{r}
 # Write and execute your code here
 
@@ -157,6 +166,7 @@ Other functions are also described on the same page, including `log10()`. How ma
 Let's start by practicing nesting functions.
 
 Get the type of the return value of `log(38438)` by nesting `log(38438)` within the `typeof()` function. The `typeof()` function returns a character value indicating the type ("logical", "character", "double") of the argument. Assign the return value of the nested functions to a variable named "nest_1".
+
 ```{r}
 # Write and execute your code here
 
@@ -168,6 +178,7 @@ Get the type of the return value of `log(38438)` by nesting `log(38438)` within 
 **Check your answer by running the above block** 
 
 Use the square root of 45.37 rounded to 0 digits as the base to take the log of 16807. Do this in one line of code by nesting the three necessary functions. Assign the return value of the nested functions to a variable named "nest_2".
+
 ```{r}
 # Write and execute your code here
 
@@ -184,7 +195,7 @@ Now, we will look at real biological data to see the utility of built-in functio
 
 The function `substr()` in R extracts a "substring" from a character value, in other words in extracts a portion of a character value from one position in the string to another. 
 
-Pull up the help page for the `substr()` function. *This question will not be autograded.*
+Pull up the help page for the `substr()` function. *This question will not have auto-tests.*
 
 ```{r}
 # Write and execute your code here
@@ -200,6 +211,7 @@ RBFOX1_CDS <- "ATGAATTGTGAAAGAGAGCAGCTAAGGGGTAATCAGGAAGCAGCCGCTGCCCCTGACACAATGGC
 ```
 
 Use the `substr()` function to retrieve the start codon - the first to the third nucleotides. Assign the return value to a variable named "first_codon".
+
 ```{r}
 # Write and execute your code here
 
@@ -210,8 +222,7 @@ Use the `substr()` function to retrieve the start codon - the first to the third
 ```
 **Check your answer by running the above block** 
 
-The `nchar()` function counts the number individual characters in a character value. Pull up the help page. *This question will not be autograded.*
-: Tutorial.W2.1.3.
+The `nchar()` function counts the number individual characters in a character value. Pull up the help page. *This question will not have auto-tests.*
 
 ```{r}
 # Write and execute your code here
@@ -219,6 +230,7 @@ The `nchar()` function counts the number individual characters in a character va
 ```
 
 Use `nchar()` to determine the number of nucleotides in the RBFOX1 CDS. Assign the return value to a variable named "nucleotides_in_RBFOX1".
+
 ```{r}
 # Write and execute your code here
 
@@ -229,8 +241,9 @@ Use `nchar()` to determine the number of nucleotides in the RBFOX1 CDS. Assign t
 ```
 **Check your answer by running the above block** 
 
-Nest the `nchar()` function inside the `substr()` function to retrieve the stop codon in the RBFOX1 CDS (the 3 nucleotides). Assign the return value to a variable named "stop_codon".
+Nest the `nchar()` function inside the `substr()` function to retrieve the stop codon in the RBFOX1 CDS (the 3 nucleotides). Assign the return value to a variable named "stop_codon". 
 Hint: You will need to use the `nchar()` function to get the values for the second and third arguments. 
+
 ```{r}
 # Write and execute your code here
 
@@ -264,6 +277,7 @@ Return value: logical indicating whether `pattern` is present in `x`
 Use `grepl()` to check if any of the restriction enzymes will work for the digest.
 
 Check if the EcoRI recognition sequence is the RBFOX1 CDS. Assign the return value of the function to a variable named "EcoRI_seq_in_RBFOX1".
+
 ```{r}
 # Write and execute your code here
 
@@ -274,14 +288,14 @@ Check if the EcoRI recognition sequence is the RBFOX1 CDS. Assign the return val
 ```
 **Check your answer by running the above block** 
 
-Check the BamHI recognition sequence. *This question will not be autograded.*
+Check the BamHI recognition sequence. *This question will not have auto-tests.*
 
 ```{r}
 # Write and execute your code here
 
 ```
 
-Check the SmaI recognition sequence. *This question will not be autograded.*
+Check the SmaI recognition sequence. *This question will not have auto-tests.*
 
 ```{r}
 # Write and execute your code here
@@ -289,6 +303,7 @@ Check the SmaI recognition sequence. *This question will not be autograded.*
 ```
 
 Which of the three restriction enzymes will work for the restriction digest? Assign the name of the restriction enzyme ("EcoRI", "BamHI", or "SmaI") to a variable named "RBFOX1_restriction_enzyme".
+
 ```{r}
 # Write and execute your code here
 

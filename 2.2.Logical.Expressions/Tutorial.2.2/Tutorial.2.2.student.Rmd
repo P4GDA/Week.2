@@ -33,6 +33,7 @@ At the end of this tutorial you should be able to:
 Use comparison operators to write and execute a piece of code answering the following true or false questions.
 
 Is 3 greater than or equal to -10? Assign the return value of the logical expression to a variable named "comparison_1".
+
 ```{r}
 # Write and execute your code here
 
@@ -44,6 +45,7 @@ Is 3 greater than or equal to -10? Assign the return value of the logical expres
 **Check your answer by running the above block** 
 
 Is x less than y? Assign the return value of the logical expression to a variable named "comparison_2".
+
 ```{r}
 x <- 102
 y <- 102
@@ -56,7 +58,8 @@ y <- 102
 ```
 **Check your answer by running the above block** 
 
-Is 5 plus 10 the same as 10 plus 5? Assign the return value of the logical expression to a variable named "is.addition.commutative".
+Is 5 plus 10 the same as 10 plus 5? Assign the return value of the logical expression to a variable named "is_addition_commutative".
+
 ```{r}
 # Write and execute your code here
 
@@ -67,7 +70,8 @@ Is 5 plus 10 the same as 10 plus 5? Assign the return value of the logical expre
 ```
 **Check your answer by running the above block** 
 
-Is 5 divided by 10 the same as 10 divided by 5? Assign the return value of the logical expression to a variable named "is.division.commutative".
+Is 5 divided by 10 the same as 10 divided by 5? Assign the return value of the logical expression to a variable named "is_division_commutative".
+
 ```{r}
 # Write and execute your code here
 
@@ -94,6 +98,7 @@ sample2_description <- "Protein extracted from K562 cells"
 Use the `grepl()` function to answer the following questions about these two samples.
 
 a. Is sample 1 derived from HeLa cells? Assign the return value to a variable named "sample1_HeLa".
+
 ```{r}
 # Write and execute your code here
 
@@ -105,6 +110,7 @@ a. Is sample 1 derived from HeLa cells? Assign the return value to a variable na
 **Check your answer by running the above block** 
 
 b. Is sample 2 not derived from HeLa cells? Assign the return value to a variable named "sample2_not_HeLa".
+
 ```{r}
 # Write and execute your code here
 
@@ -116,6 +122,7 @@ b. Is sample 2 not derived from HeLa cells? Assign the return value to a variabl
 **Check your answer by running the above block** 
 
 c. Are sample 1 and sample 2 protein extracts? Assign the return value to a variable named "both_samples_protein".
+
 ```{r}
 # Write and execute your code here
 
@@ -127,6 +134,7 @@ c. Are sample 1 and sample 2 protein extracts? Assign the return value to a vari
 **Check your answer by running the above block** 
 
 d. Are sample 1 and sample 2 derived from K562 cells? Assign the return value to a variable named "both_samples_K562".
+
 ```{r}
 # Write and execute your code here
 
@@ -138,6 +146,7 @@ d. Are sample 1 and sample 2 derived from K562 cells? Assign the return value to
 **Check your answer by running the above block** 
 
 e. Are sample 1 or sample 2 derived from K562 cells? Assign the return value to a variable named "any_samples_K562".
+
 ```{r}
 # Write and execute your code here
 
@@ -185,6 +194,7 @@ threshold <- 1
 If the expression level passes the threshold (is greater than or equal the threshold), it is considered to be expressed.
 
 Check if the expression of ANY of the three transcription factors passes the threshold for cell line 1 (CL_1). Assign the return value of the logical expression to a variable named "any_gene_expressed_CL_1".
+
 ```{r}
 # Write and execute your code here
 
@@ -196,6 +206,7 @@ Check if the expression of ANY of the three transcription factors passes the thr
 **Check your answer by running the above block** 
 
 Check if OCT4 is expressed (passes the threshold) for ALL cell lines. Assign the return value of the logical expression to a variable named "OCT4_expressed_in_all".
+
 ```{r}
 # Write and execute your code here
 
@@ -207,6 +218,7 @@ Check if OCT4 is expressed (passes the threshold) for ALL cell lines. Assign the
 **Check your answer by running the above block** 
 
 Does NANOG *NOT* pass the threshold for any of the three cell lines? Assign the return value of the logical expression to a variable named "NANOG_not_expressed_in_all".
+
 ```{r}
 # Write and execute your code here
 
@@ -218,6 +230,7 @@ Does NANOG *NOT* pass the threshold for any of the three cell lines? Assign the 
 **Check your answer by running the above block** 
 
 Does SOX2 pass the threshold for cell line 1 *OR* cell line 3 *AND* does SOX2 *NOT* pass the threshold for cell line 2? (In other words: "Is SOX2 expressed in at least one of cell 1 or 3, and does SOX2 not expressed in cell line 2?") Assign the return value of the logical expression to a variable named "SOX2_expression".
+
 ```{r}
 # Write and execute your code here
 
@@ -234,6 +247,7 @@ The scientist only labels cell lines as pluriplotent if all three genes (OCT4, N
 
 Write a logical expression to answer the following question:
 Is cell line 3 pluripotent? Assign the return value of the logical expression to a variable named "CL_3_pluripotent".
+
 ```{r}
 # Write and execute your code here
 
@@ -246,6 +260,7 @@ Is cell line 3 pluripotent? Assign the return value of the logical expression to
 
 Write a logical expression to answer the following question:
 Are any of the 3 cell lines not pluripotent? Assign the return value of the logical expression to a variable named "any_not_pluripotent".
+
 ```{r}
 # Write and execute your code here
 

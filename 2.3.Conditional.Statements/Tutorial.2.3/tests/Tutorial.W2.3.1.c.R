@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(q.1.c, 15.2)
+        expect_equal(check_mouse_4, 15.2)
       }
     )
   )

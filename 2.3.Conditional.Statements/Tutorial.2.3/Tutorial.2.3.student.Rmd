@@ -72,9 +72,10 @@ mouse_8_group <- "control"
 mouse_8_hemo <- 14.9
 ```
 
-Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `q.1.a <-` or otter grader will not be able to check your answer.
+Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `check_mouse_1_sex <-` or otter grader will not be able to check your answer.
+
 ```{r}
-q.1.a <-
+check_mouse_1_sex <-
 # Write and execute your code here
 
 ```
@@ -85,6 +86,7 @@ q.1.a <-
 **Check your answer by running the above block** 
 
 Write an if statement to check if mouse 7 has a hemoglobin content greater than 15 g/dL and if so, assigns the value "high" to a variable named "hemo_content".
+
 ```{r}
 # Write and execute your code here
 
@@ -95,9 +97,10 @@ Write an if statement to check if mouse 7 has a hemoglobin content greater than 
 ```
 **Check your answer by running the above block** 
 
-Write an if statement to check if mouse 4 is male AND is a mutant mouse, if so print the hemoglobin content of the mouse. Do not alter the line containing the code `q.1.c <-` or the otter grader will not be able to check your answer.
+Write an if statement to check if mouse 4 is male AND is a mutant mouse, if so print the hemoglobin content of the mouse. Do not alter the line containing the code `check_mouse_4 <-` or the otter grader will not be able to check your answer.
+
 ```{r}
-q.1.c <-
+check_mouse_4 <-
 # Write and execute your code here
 
 ```
@@ -107,9 +110,10 @@ q.1.c <-
 ```
 **Check your answer by running the above block** 
 
-Write an if-else statement that checks if mouse 6 is a mutant. If the mouse is a mutant, print "Mutant mouse", if it is not a mutant, print "Control mouse". Do not alter the line containing the code `q.1.d <-` or the otter grader will not be able to check your answer.
+Write an if-else statement that checks if mouse 6 is a mutant. If the mouse is a mutant, print "Mutant mouse", if it is not a mutant, print "Control mouse". Do not alter the line containing the code `check_mouse_6_mutant <-` or the otter grader will not be able to check your answer.
+
 ```{r}
-q.1.d <-
+check_mouse_6_mutant <-
 # Write and execute your code here
 
 ```
@@ -120,6 +124,7 @@ q.1.d <-
 **Check your answer by running the above block** 
 
 Write an if-else statement that checks if mouse 2 is a male. If the mouse is a male, assign the value "M" to a variable named "sex", if it is not, assign the value "F" to a variable named "sex".
+
 ```{r}
 # Write and execute your code here
 
@@ -133,8 +138,9 @@ Write an if-else statement that checks if mouse 2 is a male. If the mouse is a m
 The mean hemoglobin content is 14.95 for mutant mice and 13.9 for control mice.
 
 Write an if-else statement that will:
-- Assign the absolute value of the difference between the mean MUTANT hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff.from.group.mean", IF the mouse is a MUTANT mouse.
-- Assign the absolute value of the difference between the mean CONTROL hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff.from.group.mean", IF the mouse is a CONTROL mouse.
+- Assign the absolute value of the difference between the mean MUTANT hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff_from_group_mean", IF the mouse is a MUTANT mouse.
+- Assign the absolute value of the difference between the mean CONTROL hemoglobin content and the hemoglobin content of mouse 5 to a variable called "diff_from_group_mean", IF the mouse is a CONTROL mouse.
+
 ```{r}
 # Write and execute your code here
 
@@ -156,9 +162,10 @@ If mouse 4 has a hemoglobin content < 14 g/dl, print "Hemoglobin < 14 g/dL".
 Else, if mouse 4 has a hemoglobin content >= 14 g/dl and < 15 g/dl, print "Hemoglobin >= 14 g/dL and < 15 g/dL". 
 Else, print "Hemoglobin >= 15 g/dL."
 
-Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=` in your code (`>` and `>=` can appear in your print statements). Do not alter the line containing the code `q.2.a <-` or the otter grader will not be able to check your answer.
+Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=` in your code (`>` and `>=` can appear in your print statements). Do not alter the line containing the code `check_mouse_4_hemo <-` or the otter grader will not be able to check your answer.
+
 ```{r}
-q.2.a <-
+check_mouse_4_hemo <-
 # Write and execute your code here
 
 ```
@@ -178,6 +185,7 @@ There are 4 possible combinations of mouse sex and group (4 mutually exclusive p
 - male control
 
 Write an if-else if-else statement that will check which of these 4 possibilities fits mouse 7 and saves it to a variable called "category". For example, if mouse 7 is a female mutant, `category <- "female mutant"`, etc. 
+
 ```{r}
 # Write and execute your code here
 
@@ -188,7 +196,7 @@ Write an if-else if-else statement that will check which of these 4 possibilitie
 ```
 **Check your answer by running the above block** 
 
-Examine the following if-else if-else statement.
+Examine the following if-else if-else statement:
 
 ```{r}
 if (mouse_3_sex == "male") {
@@ -203,7 +211,6 @@ if (mouse_3_sex == "male") {
 ```
 
 Answer the following questions:
-
 - Which logical expressions in the statement would return `TRUE`?
 - Which logical expression in the statement would return `TRUE` but the following code chunk is not executed? Why isn't it executed?
 - Which print statements will never be run no matter which mouse you use?
@@ -215,9 +222,10 @@ Answer the following questions:
 
 ---
 
-Write an if statement nested within another if statement. If mouse 5 is female, check if mouse 5 is a control mouse, and then print "Mouse is a female control". Do not alter the line containing the code `q.3.a <-` or the otter grader will not be able to check your answer.
+Write an if statement nested within another if statement. If mouse 5 is female, check if mouse 5 is a control mouse, and then print "Mouse is a female control". Do not alter the line containing the code `check_mouse_5 <-` or the otter grader will not be able to check your answer.
+
 ```{r}
-q.3.a <-
+check_mouse_5 <-
 # Write and execute your code here
 
 ```
@@ -233,9 +241,10 @@ Write an if-else if-else statement nested within an if statement. The if stateme
 - or greater than 15 (if so, print "hemoglobin >= 15")
 If the mouse is not a mutant, nothing should be printed.
 
-Do not alter the line containing the code `q.3.b <-` or otter grader will not be able to check your answer.
+Do not alter the line containing the code `check_mouse_1_hemo <-` or otter grader will not be able to check your answer.
+
 ```{r}
-q.3.b <-
+check_mouse_1_hemo <-
 # Write and execute your code here
 
 ```
@@ -246,8 +255,9 @@ q.3.b <-
 **Check your answer by running the above block** 
 
 Use one or more conditional statements to write code that does the following:
-- Checks if mouse 8 is a mutant mouse or a control mouse, and calculates the absolute value of the difference from the group's mean hemoglobin content. This value should be assigned to a variable named "diff.from.group.mean" 
-- If the absolute value of the difference is > 1 standard deviation away from the group mean, the value `TRUE` is assigned to a variable named "over.1.sd", otherwise the value `FALSE` is assigned to a variable named "over.1.sd".
+- Checks if mouse 8 is a mutant mouse or a control mouse, and calculates the absolute value of the difference from the group's mean hemoglobin content. This value should be assigned to a variable named "diff_from_group_mean" 
+- If the absolute value of the difference is > 1 standard deviation away from the group mean, the value `TRUE` is assigned to a variable named "over_1_sd", otherwise the value `FALSE` is assigned to a variable named "over_1_sd".
+
 
 Necessary values for calculations:
 

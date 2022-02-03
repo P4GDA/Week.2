@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(q.3.a, "Mouse is a female control")
+        expect_equal(check_mouse_5, "Mouse is a female control")
       }
     )
   )

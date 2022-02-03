@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(q.3.b, "14 <= hemoglobin < 15")
+        expect_equal(check_mouse_1_hemo, "14 <= hemoglobin < 15")
       }
     )
   )

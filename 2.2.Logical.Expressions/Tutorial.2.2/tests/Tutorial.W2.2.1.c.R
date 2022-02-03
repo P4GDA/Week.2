@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_true(is.addition.commutative)
+        expect_true(is_addition_commutative)
       }
     )
   )
