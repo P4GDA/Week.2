@@ -505,7 +505,9 @@ Remember to always be aware of operator precedence so that you get the outcome y
 
 ### Practical Applications of Logical Expressions
 
-A scientist has performed RNA-sequencing (RNA-seq) on a cell line to check if it is pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. The scientist measured the expression of the three transcription factors in RPKM. 
+A scientist has performed RNA-sequencing (RNA-seq) on a cell line to check if it is pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. The scientist measured the expression of the three transcription factors in RPKM*. 
+
+*RPKM (reads per kilobase million) is a measurement of the expression level of gene transcripts normalized by the total number of RNA sequencing reads from a sample and the length of individual gene transcripts. RPKM measurements allow comparison of expression levels within a sample and between samples. 
 
 ```{r}
 OCT4 <- 1.02
