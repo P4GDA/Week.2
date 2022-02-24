@@ -1,1 +1,572 @@
-placeholder
+---
+title: "2.2 Logical Expressions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+```
+
+---
+
+## 2.2.1: Comparison Operators
+
+---
+
+### Logical Expressions
+
+*Logical expressions* (also referred to as logical statements) are commands that result in a binary true or false answer. In essence, they ask a true or false question. Thus, the output of a logical expression will be a logical value (also called a Boolean value): `TRUE` or `FALSE`
+
+Logical expressions can be created using:
+- comparison operators
+- logical operators
+- a mix of comparison and logical operators
+
+---
+
+### Comparison Operators
+
+Logical expressions can be created with *comparison operators* (also referred to as relational operators), which are used to COMPARE (or learn the RELATIONship between) two values. There are 6 comparison operators:
+
+- greater than:               >
+- less than:                  <
+- greater than or equal to:   >=
+- less than or equal to:      <= 
+- equal to:                   ==
+- not equal to:               !=
+
+Because these comparison operators ask a question that can be answered with true or false (e.g., "is x greater than y?"), they are logical expressions.
+
+The format for using a comparison operator is:
+
+        value COMPARISON OPERATOR value 
+
+Let's look at a few examples along with the true or false question that the ask.
+
+Is 3 greater than 7?
+
+```{r}
+3 > 7
+```
+ 
+Is 3 less than or equal to 7? 
+
+```{r}
+3 <= 7
+```
+
+Is “A” equal to “B”?
+
+```{r}
+"A" == "B"
+```
+
+Is “A” not equal to “B”?
+
+```{r}
+"A" != "B"
+```
+
+Instead of using values directly, variables can be used in logical expressions, as variables store values:
+
+```{r}
+x <- 3
+y <- 7
+x > y
+```
+
+Though comparison operators are straightforward for numeric type values, the result of character type value comparisons is less obvious at first.
+
+A character value is "less than" another character value if it comes first alphabetically. 
+
+```{r}
+"apple" > "banana"
+```
+
+This evaluates to `FALSE` because "apple" comes before "banana" in alphabetical order. Because "apple" comes first, R interprets this as "less than" "banana", thus "banana" is greater than "apple".
+
+---
+
+**WARNING**
+
+When using the "equal to" comparison operator it is important to remember thatyou must use 2 equal signs, `==`, instead of a single equal sign, `=`. A single `=` will lead to variable assignment (like `<-`). A single equals sign in R is generally only used for specifying values for arguments when we use functions. 
+
+Let's look at example of what would happen if we used `=` when we meant to use `==`. We will compare the values 5 and 6.
+
+```{r}
+5 = 6
+``` 
+
+The error message mentions assignment, meaning R is trying to assign the value 6 to a new variable named 5. But, it cannot because, as we learned last week, variable names cannot start with a number. 
+
+R will prevent you from assigning the value 6 to the value 5, but if we were using variables it would turn out differently. First we will assign the value 5 to the variable `a`.
+
+```{r}
+a <- 5
+a
+``` 
+
+Now let's use a single equals sign to try to compare `a` (5) with the value 6.
+
+```{r}
+a = 6 
+a
+```
+
+Now our variable `a` has the value of 6 instead of 5. If you don't realize and use the `a` variable later on when you are coding, it will have the wrong value and will lead to incorrect calculations and analysis. 
+
+Always be careful to use two equal signs when writing an "equals to" logical expression.
+
+---
+
+### Comparison Operator Precedence
+
+Comparison operators have a *lower precedence* than mathematical operators (mathematical operators will be executed BEFORE logical operators). Before running the code below, what do you think the answer will be?
+
+```{r}
+25 / 5 >= 10 - 7 + 1
+```
+
+R executed this code by first executing all of the mathematical operators, and then executing the comparison operators:
+                25 / 5 >= 10 - 7 + 1
+                     5 >= 4
+
+Although each side will be executed before the comparison operator is executed, you may find that using brackets can help you visually differentiate the two components being compared. 
+
+```{r}
+(25 / 5) >= (10 - 7 + 1) 
+```
+
+The use of unnecessary brackets for visual clarity becomes very useful as code becomes more complex.
+
+---
+
+## 2.2.2: Logical Operators
+
+---
+
+### Boolean Algebra
+
+In the algebra you have learned throughout school, variables are numbers, and the outcome of equations are also numbers.
+
+Boolean algebra is a branch of math in which all variables are the values true or false, and the outcomes are also true or false.
+
+Mathematical operators are used in classical algebra (+, -, x, /, etc.). In Boolean algebra, *logical operators* are used.
+
+There are three main logical operators in Boolean algebra:
+- NOT
+- AND
+- OR
+
+There are also secondary logical operators, but they will not be covered in this course.
+
+**NOT** 
+
+NOT is also referred to as the "negation", and is equivalent to the "complement" in statistics. 
+
+NOT TRUE = FALSE 
+NOT FALSE = TRUE
+
+In plain English, if something is not true, it must be false. If something is not false, it must be true.
+
+In Boolean algebra, *truth tables* can be used to show the rules of operators.
+
+| x     | NOT x |
+| ----- | ----- |
+| TRUE  | FALSE |
+| FALSE | TRUE  |
+
+If x = TRUE, then NOT x = FALSE and vice versa.
+
+**AND**
+
+AND is also referred to as the "conjunction", and is equivalent to the "intersect" in statistics. 
+
+We only need one variable for NOT, but with AND we are looking at two different variables. This time we will start by looking at the truth table for AND, considering two variables:
+
+| x     | y     | x AND y |
+| ----- | ----- | ------- |
+| TRUE  | TRUE  | TRUE    |
+| TRUE  | FALSE | FALSE   |
+| FALSE | TRUE  | FALSE   |
+| FALSE | FALSE | FALSE   |
+
+In plain English, the first row translates to "if x is true and y is true, then the outcome of x and y is true". You will notice that the outcome in all other rows is FALSE, this is because both variables must equal TRUE for the expression to evaluate to TRUE.
+
+Example: If someone asks you "Are you serving hamburgers AND hotdogs at the barbeque?", you would only say "Yes" if you are serving BOTH. Otherwise you would say "No, just hotdogs", "No, just hamburgers", or "No, we don't have either". 
+
+**OR**
+
+OR is also referred to as the "disjunction", and is equivalent to the "union" in statistics. 
+
+With OR we are again looking at two different variables. Here is the truth table.
+
+| x     | y     | x OR y |
+| ----- | ----- | ------ |
+| TRUE  | TRUE  | TRUE   |
+| TRUE  | FALSE | TRUE   |
+| FALSE | TRUE  | TRUE   |
+| FALSE | FALSE | FALSE  |
+
+In plain English, the first row translates to "if x is true or y is true, then the outcome of x or y is true". This time the outcome in the first 3 rows is TRUE, and the last row evaluates to FALSE. With OR, as long as one of the two variables equals TRUE, the expression will evaluate to TRUE.
+
+The interpretation of OR, is different from the standard interpretation of the word "or" in English. For example, “I will have a burger or a hotdog” usually implies:
+        
+        “I will have a burger and not a hotdog, otherwise I will have a hotdog and not a burger.”
+
+There are only two options:
+       1. burger = TRUE, hotdog = FALSE
+       2. burger = FALSE, hotdog = TRUE
+       
+In Boolean algebra there is a third option:
+       1. burger = TRUE, hotdog = FALSE
+       2. burger = FALSE, hotdog = TRUE
+       3. burger = TRUE, hotdog = TRUE
+
+The English translation is: 
+
+“I will have a burger and not a hotdog, I will have a hotdog and not a burger, otherwise I will have a burger and a hotdog.”
+
+**NOT, AND, OR: Summary**
+
+NOT TRUE = FALSE
+NOT FALSE = TRUE
+
+TRUE AND TRUE = TRUE
+TRUE AND FALSE = FALSE
+FALSE AND TRUE = FALSE
+FALSE AND FALSE = FALSE
+
+TRUE OR TRUE = TRUE
+TRUE OR FALSE = TRUE
+FALSE OR TRUE = TRUE
+FALSE OR FALSE = FALSE
+
+---
+
+### Logical Operators in R
+
+In R, the symbols used to denote the logical operators are:
+
+- NOT:    !
+- AND:    &
+- OR:     |
+
+Because using logical operators is performing Boolean algebra, the values that are used with them must be logical values (`TRUE` and `FALSE`). 
+
+        NOT logical value
+        logical value AND logical value
+        logical value OR logical value
+
+Let's investigate them in R one by one.
+
+**NOT**
+
+Not `TRUE` is equivalent to `FALSE`.
+
+```{r}
+!TRUE
+```
+
+And not `FALSE` is equivalent to `TRUE`.
+
+```{r}
+!FALSE
+```
+
+**AND**
+
+The AND operator evaluates to `TRUE` if and only if the value on BOTH SIDES of the operator are `TRUE`.
+
+```{r}
+TRUE & TRUE
+```
+
+```{r}
+TRUE & FALSE
+```
+
+```{r}
+FALSE & TRUE
+```
+
+```{r}
+FALSE & FALSE
+```
+
+**OR**
+
+The OR operator evaluates to `TRUE` as long as the value on AT LEAST ONE SIDE of operator is `TRUE`. 
+
+```{r}
+TRUE | TRUE 
+```
+
+```{r}
+TRUE | FALSE 
+```
+
+```{r}
+FALSE | TRUE
+```
+
+```{r}
+FALSE | FALSE 
+```
+
+---
+
+## 2.2.3: Applying Logical Operators
+
+---
+
+### Logical Operators with Logical Expressions
+
+All logical expressions return either `TRUE` or `FALSE`, and all values used with logical operators must be `TRUE` or `FALSE`.
+
+Therefore, logical expressions can be used in place of `TRUE` or `FALSE` with logical operators.
+
+Is "sample_1" equal to "sample_2"?
+
+```{r}
+"sample_1" == "sample_2"
+```
+
+If we put a NOT in front of the expression, we will instead be checking if the logical expression `"sample_1" == "sample_2"` is NOT true. 
+
+```{r}
+! "sample_1" == "sample_2"
+```
+
+### Operator Precedence
+
+Comparison operators have a higher precedence than logical operators. Comparison operators are executed first.
+
+```{r}
+! "sample_1" == "sample_2"
+```
+
+In this line of code:
+`"sample_1" == "sample_2"` returns `FALSE`, then
+`! FALSE` returns `TRUE`
+
+What do you expect the output to be for the following code?
+
+```{r}
+! "sample_1" == "sample_1"
+```
+
+First R executes `"sample_1" == "sample_1"` which outputs `TRUE` and then the `!` negates the value making it `FALSE`. 
+
+Mathematical operators are executed before comparison operators. 
+
+*Highest precedence*
+mathematical operators
+comparison operators
+logical operators
+*Lowest precedence*
+
+Below, the mathematical operator (`+`) will be executed, then the two comparison operators (`>` and `==`) will be executed, and finally the logical operator will be executed last.
+
+```{r}
+10 > 3 + 8 & "sample_1" == "sample_1"
+```
+
+In this line of code:
+`3 + 8` returns `11`, leaving us with:
+`10 > 11 & "sample_1" == "sample_1"`
+
+`10 > 11` returns `FALSE`, then
+`"sample_1" == "sample_1"` returns `TRUE`, leaving us with:
+`FALSE & TRUE`, which returns `FALSE`
+
+Examine this complex logical expression. Before you run the code, predict what the output logical value will be.
+
+```{r}
+18 / 3 < 7 + 3 * 2 | 18 / 6 <= 7 - 3 * 2
+```
+
+In this line of code:
+`18 / 3` returns `6`, then
+`7 + 3 * 2` returns `13`, then
+`18 / 6` returns `3`, then
+`7 - 3 * 2` returns `1`, leaving us with:
+`6 < 13 | 3 <= 1`
+
+`6 < 13` returns `TRUE`, then
+`3 <= 1` returns `FALSE`, leaving us with:
+`TRUE | FALSE`, which returns `TRUE`.
+
+---
+
+### Nested Logical Expressions
+
+In the following code:
+
+```{r}
+10 > 3 + 8 & "sample_1" == "sample_1"
+```
+
+- `10 > 3 + 8` is a logical expression
+- `"sample_1" == "sample_1"` is a logical expression 
+- `10 > 3 + 8 & "sample_1" == "sample_1"` is a logical expression
+
+All three pieces of code output a logical value. Logical expressions can be written with comparison operators, logical operators or both.
+
+Generally logical expressions that contain logical operators will have logical expressions nested within them, as logical operators must be passed logical values.
+
+---
+
+### Logical Operators and Functions
+
+A common way to use logical operators is with functions that return logical values.
+
+The `grepl()` function returns a logical value indicating whether a character pattern is found within a character value.
+
+Description: search for matches within a pattern
+Usage: `grepl(pattern, x)`
+Arguments: `pattern` character value that you want to find in a string
+           `x` character value in which to search for the pattern
+Return value: `TRUE` if `pattern` is in `x`, `FALSE` if pattern is not in `x`
+
+For example, if we had a sample description and we wanted to check if it mentioned anything about "DNA", we could use the `grepl()` function.
+
+```{r}
+sample_description <- "DNA extracted from HEK293 cells"
+grepl("DNA", sample_description) 
+```
+
+`TRUE` is output because the word "DNA" is in the sample description.
+
+We could also check if the sample description does NOT contain a word by using the `!` operator with the `grepl()` function. For example, check if the sample is not from K562 cells:
+
+```{r}
+sample_description <- "DNA extracted from HEK293 cells"
+!grepl("K562", sample_description) 
+```
+
+We could also check that the sample is RNA AND is from K562 cells:
+
+```{r}
+sample_description <- "RNA extracted from K562 cells"
+grepl("RNA", sample_description) & grepl("K562", sample_description) 
+```
+
+Or check if the sample is RNA OR DNA:
+
+```{r}
+sample_description <- "RNA extracted from K562 cells"
+grepl("RNA", sample_description) | grepl("DNA", sample_description) 
+```
+
+---
+
+## 2.2.4: Complex Logical Expressions
+
+### Logical Operator Precedence
+
+For comparison operators, all 6 operators have the same precedence. Logical operators are different: `!` has the highest precedence, then `&`, then `|`. 
+
+*Highest precedence*
+NOT    `!`
+AND    `&`
+OR     `|`
+*Lowest precedence*
+
+Let's trace how the following code would be executed to understand the precedence rules:
+
+```{r}
+TRUE | !FALSE & TRUE | FALSE & !TRUE
+```
+
+The `!` operators will be executed first (from left to right), making the statement:
+
+        TRUE | TRUE & TRUE | FALSE & FALSE
+        
+Then `&` operators will be executed (left to right):
+
+        TRUE | TRUE | FALSE
+        
+Finally `|` operators will be executed (left to right):
+        
+        TRUE
+
+If you want the `|` operators to execute first, you must put them in brackets `()`, like with mathematical operators. The code within the brackets will be executed first - abiding by operator precedence within the brackets. 
+
+```{r}
+(TRUE | !FALSE) & (TRUE | FALSE) & !TRUE
+```
+
+This changes the result. 
+
+Remember to always be aware of operator precedence so that you get the outcome you are intending. 
+
+---
+
+### Practical Applications of Logical Expressions
+
+A scientist has performed RNA-sequencing (RNA-seq) on a cell line to check if it is pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. The scientist measured the expression of the three transcription factors in RPKM. 
+
+```{r}
+OCT4 <- 1.02
+NANOG <- 0.78
+SOX2 <- 0.17
+```
+
+The scientist uses the following threshold for determining if there is enough expression of each transcription factor for it to be pluripotent:
+
+```{r}
+threshold <- 1
+```
+
+If the expression level is greater than or equal to the threshold, it is considered to be above the threshold.
+
+*Are ANY of the transcription factors expressed at or higher than the threshold level?*
+
+When you see the word "any" the question is asking if "at least one of the components is true". Thus, you should use OR (`|`).
+
+```{r}
+OCT4 >= threshold | NANOG >= threshold | SOX2 >= threshold
+```
+
+The output indicates that at least one is above the threshold. The direct English translation of the code is:
+
+        "OCT4 is above the threshold or NANOG is above the threshold or SOX2 is above the threshold"
+
+*Are ALL of the transcription factors expressed at or higher than the threshold level?*
+
+When you see the word "all" the question is asking if "every component is true". Thus, you should use AND (`&`).
+
+```{r}
+OCT4 >= threshold & NANOG >= threshold & SOX2 >= threshold
+```
+
+The output indicates that not all of them are above the threshold - at least one is below the threshold. The direct English translation of the code is:
+
+        "OCT4 is above the threshold and NANOG is above the threshold and SOX2 is above the threshold"
+
+*Are OCT4 AND NANOG above the threshold OR is SOX2 above the threshold?*
+
+```{r}
+OCT4 >= threshold & NANOG >= threshold | SOX2 >= threshold
+```
+
+*Are OCT4 OR NANOG above the threshold AND is SOX2 above the threshold?*
+
+```{r}
+(OCT4 >= threshold | NANOG >= threshold) & SOX2 >= threshold
+```
+
+*Is OCT4 above the threshold OR are NANOG AND SOX2 above the threshold?*
+
+```{r}
+OCT4 >= threshold | NANOG >= threshold & SOX2 >= threshold
+```
+
+*Is OCT4 above the threshold AND are NANOG AND SOX2 below the threshold?*
+
+```{r}
+OCT4 >= threshold & ! NANOG >= threshold & ! SOX2 >= threshold
+```
+
+---
