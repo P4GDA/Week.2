@@ -1,1 +1,430 @@
-placeholder
+---
+title: "2.3 Conditional Statements"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+```
+
+---
+
+## 2.3.1: If & If-else Statements
+
+---
+
+### Conditional Statements
+
+In math a *conditional statement* is a statement with the form "if P, then Q". This is also called an implication. 
+
+Examples: 
+
+- *IF* it is raining, *THEN* I will take an umbrella.
+- *IF* x <= 0, *THEN* log(x) is undefined
+- *IF* the sample is contaminated, *THEN* don't include in analysis
+- *IF* the patient's iron level < 12.0 g/dL, *THEN* prescribe iron supplements
+
+Conditional statements in computer programming go beyond the "if P, then Q" construct. Conditional statements can also handle situations like:
+
+- *IF* the sample is contaminated, *THEN* don't include in analysis, *ELSE* add the sample to the analysis.
+- *IF* the patient's iron level < 12.0 g/dL, *THEN* prescribe iron supplements, *ELSE IF* the patient's iron level > 17.0 g/dL, *THEN* send the patient for further testing, *ELSE* patient has normal iron levels.
+
+Conditional statements in R allow us to run different code in different situations.
+
+---
+
+### If Statements
+
+The *if statement* is a conditional statement. An if statement follows the "if P, then Q" format, allowing code to be run if and only if "P" is true:
+
+    if (logical expression) {
+        ...code block...
+    }
+
+*IF* the logical expression in the brackets returns `TRUE`, *THEN* the code inside the curly braces `{}` (represented by `...code block...`) will be executed.Note that there is a tab before the `...code block...`. In R, when code is written within curly braces, it is tabbed out for clarity. 
+
+Let's look at a very simple example. We will create an if statement that outputs the message "x is negative" if the number `x` is less than 0.
+
+In other words: *IF* x is negative, *THEN* output a message to the user.
+
+```{r}
+x <- -10
+if ( x < 0 ) {
+  print("x is negative")
+}
+```
+
+Here the logical expression is `x < 0` and the code that is executed if it returns `TRUE`, is `"x is negative"`. 
+
+What if the logical expression returned `FALSE` instead?
+
+```{r}
+x <- 10
+if ( x < 0 ) {
+  print("x is negative")
+}
+```
+
+Nothing is output. When the logical expression returns `FALSE` the code block inside the curly braces `{}` is not executed.
+
+*Note:* When you want to output code within curly braces you should ALWAYS use the `print()` function. Otherwise, the output will not function as expected.
+
+---
+
+### If-else Statements
+
+An if statement only executes code if the logical expression outputs `TRUE`. The *if-else statement* is used when you also want to specify code to run if the logical expression returns `FALSE`. An if-else statement executes different code depending on the return value (`TRUE` or `FALSE`) from the logical expression. An "if-else" statement is written in this format:
+
+    if (logical expression) {
+        ...code block A...
+    } else {
+        ...code block B...
+    }
+
+*IF* the logical expression in the brackets returns `TRUE`, *THEN* code block A is executed. *ELSE* (if the logical expression returns `FALSE`), code block B is executed.
+
+Let's go back to our earlier example. If a number is not negative, it must be 0 or positive, therefore the code within the `else` curly braces will only be run if x >= 0.
+
+```{r}
+x <- -10
+if ( x < 0 ) {
+  print("x is negative")
+} else {
+  print("x is >= 0")
+}
+```
+
+Here we have assigned -10 to `x` so it executes the code within the `if` curly braces.
+
+If we instead use a positive number:
+
+```{r}
+x <- 10
+if ( x < 0 ) {
+  print("x is negative")
+} else {
+  print("x is >= 0")
+}
+```
+
+It executes the code within the `else` curly braces.
+
+**Only one of the code blocks in an if-else statement will be executed. It will never execute both.**
+
+---
+
+## 2.3.2: If-else if-else Statements
+
+---
+
+### If-else if-else Statements
+
+If statements are used for 2 mutually exclusive possibilities defined by a logical expression, but code is only executed for only one possibility - when the logical expression returns `TRUE`.
+
+If-else statements are used for 2 mutually exclusive possibilities defined by a logical expression, and code is executed for both possibilities - different code when the logical expression returns `TRUE` vs `FALSE`.
+
+*If-else if-else statements* are used for N mutually exclusive possibilities defined by multiple logical expressions, and code is executed for all possibilities.
+
+An "if-else if-else" statement is written in this format:
+
+    if (logical expression A) {
+        ...code block A...
+    } else if (logical expression B) {
+        ...code block B...
+    } else if (logical expression C) {
+        ...code block C...
+    ...
+    } else {
+        ...code block N...
+    }
+
+*IF* logical expression A returns `TRUE`, *THEN* code block A will be executed, *ELSE IF* logical expression B returns `TRUE`, *THEN* code block B will be executed, *ELSE IF* logical expression C returns `TRUE`, *THEN* code block C will be executed, ... etc ... *ELSE* (if ALL of the logical expressions return `FALSE`), execute code block N.
+
+Only one of the code blocks will ever be run. As soon as one logical expression returns `TRUE`, the following code block will be run and no more logical expressions will be executed. In the case that no logical expressions return `TRUE`, the code in the final block will be executed (the code following "else").
+
+It is helpful to think of if and if-else statements as dealing with binary situations, and if-else if-else statements as dealing with situations with multiple options.
+
+Building on the earlier example, let's look at an if-else if-else statement. When we looked at the if and if-else statements, we were only checking if x was less than 0, or >= 0. Now we can look at three options:
+- x is negative (x < 0)
+- x is positive (x > 0)
+- x is 0
+
+What happens when x is -10?
+
+```{r}
+x <- -10
+if ( x < 0 ) {
+  print("x is negative")
+} else if ( x > 0 ){
+  print("x is positive")
+} else {
+  print("x is 0")
+}
+```
+
+When x is 10?
+
+```{r}
+x <- 10
+if ( x < 0 ) {
+  print("x is negative")
+} else if ( x > 0 ){
+  print("x is positive")
+} else {
+  print("x is 0")
+}
+```
+
+When x is 0?
+
+```{r}
+x <- 0
+if ( x < 0 ) {
+  print("x is negative")
+} else if ( x > 0 ){
+  print("x is positive")
+} else {
+  print("x is 0")
+}
+```
+
+---
+
+### Non-mututally Exclusive Options
+
+In the last example all 3 options were mutually exclusive. A number can never be both greater than AND less than 0, nor can it be 0 and less than 0, nor can it be 0 and greater than 0. Only one of the options can be true for any given number.
+
+What if we made an if-else if-else statement with non-mutually exclusive options? Let's create one with the options:
+- x is negative (x < 0)
+- x is less than -5 (x < -5)
+- x greater than or equal to 0 (x >= 0)
+
+A number cannot be less than 0 and greater than or equal to 0, nor can a number be less than -5 and greater than or equal to 0. However, a number CAN be less than 0 and less than -5. For example, the number -10.
+
+```{r}
+x <- -10
+if ( x < 0 ) {
+  print("x is negative")
+} else if ( x < -5 ){
+  print("x < -5")
+} else {
+  print("x >= 0")
+}
+```
+
+Although -10 returns `TRUE` for both the first and second logical expressions, only "x is negative" is printed. As stated earlier, only one code block will ever be run. It will be the first code block after a logical expression returns `TRUE`. As soon as one logical expression returns `TRUE`, no more logical expressions are evaluated.
+
+In fact, in the above if-else if-else statement, `print(x < -5)` will NEVER be run no matter what the value of x. If x < -5 then it is also true that x < 0, therefore the first logical expression will return `TRUE` and the second logical expression will not be checked.
+
+Thus, it is important to be cautious if your options are not mutually exclusive.
+
+---
+
+## 2.3.3: Nested Conditional Statements
+
+---
+
+### Conditional Statement Application
+
+Let's examine some practical applications of conditional statements. 
+
+**Valid CDS**
+
+You are looking at coding sequences and want to output a warning message if the number of bases is not a multiple of 3 - because that means there is an incomplete codon. 
+
+Let's learn a new function and a new mathematical operator to write this code.
+
+The `nchar()` function counts the number of individual characters in a character value. 
+
+Description: count the number of letters in a character value
+Usage: `nchar(x)`
+Arguments: `x` - character value
+Return value: numeric value
+
+```{r}
+nchar("ABC")
+```
+
+The *modulo* operator `%%` returns the remainder after division. Thus, a 0 will be returned if and only if the denominator is perfect divisor of the numerator.
+
+Numerator is divisible by denominator:
+
+```{r}
+4 %% 2
+```
+
+Numerator is NOT divisible by denominator:
+
+```{r}
+4 %% 3
+```
+
+Now let's write our if statement. The logical expression here translates to "If the number of bases divided by 3 does not return 0" in other words, if the number is not divisible by 3.
+
+```{r}
+coding_sequence <- "ATGACGTTTTACGGAC"
+num_bases <- nchar(coding_sequence)
+if (num_bases %% 3 != 0) {
+  print("Warning: Sequence has a partial codon")
+}
+```
+
+The sequence has 16 bases (ATG ACG TTT TAC GGA C), thus it is incomplete.
+
+**Sample Descriptions**
+
+A scientist has sample descriptions for a number of samples that indicate the type of macromolecule extracted (DNA or RNA) from a specific cell line (HEK293, HeLa, or hESC). Here are three of the samples:
+
+```{r}
+sampleA <- "DNA from HEK293 cells."
+sampleB <- "RNA from HeLa cells."
+sampleC <- "DNA from hESC cells"
+```
+
+For a given sample, the scientist wants to save the type of nucleotide extract in sample A for downstream analysis. For this we can use an if-else statement, as there are 2 possibilities: RNA or DNA. 
+
+For this we will use the `grepl()` function, which finds a character pattern in a character value: `grepl(pattern, character value)`. 
+
+```{r}
+sampleA <- "DNA from HEK293 cells."
+if ( grepl("DNA", sampleA) ) {
+  extract_type <- "DNA"
+} else {
+  extract_type <- "RNA"
+}
+extract_type
+```
+
+It is important to remember that variables can be assigned within conditional statements and used in later analysis. 
+
+---
+
+### Nested If Statements
+
+If statements can be nested within one another. One if statement can placed within the code block of another. For example:
+
+```{r}
+sampleA <- "DNA from HEK293 cells."
+if ( grepl("DNA", sampleA) ) {
+  print("DNA extract")
+  if ( grepl("HEK293", sampleA) ) {
+    print("HEK293 cell line")
+  }
+}
+```
+
+Here, if the word "DNA" is in the sample description, it will print out "DNA extract", then it will execute another if statement, that checks if the word "HEK293" is in the sample description and if so, it will print out "HEK293 cell line". 
+
+When we write nested if statements, we "tab" the inner if statement out. 
+
+    if (logical expression A) {
+    [tab]...code...
+    [tab]if (logical expression A') {
+    [tab][tab]...code...
+    [tab]}
+    }
+
+These tabs improve readability of the code.
+
+In the above case both messages were printed. In sample B, neither the word DNA nor HEK293 occurs.
+
+```{r}
+sampleB <- "RNA from HeLa cells."
+if ( grepl("DNA", sampleB) ) {
+  print("DNA extract")
+  if ( grepl("HEK293", sampleB) ) {
+    print("HEK293 cell line")
+  }
+}
+```
+
+Thus there is no output at all. The first (outer) if statement logical expression returns `FALSE`, and so the second (inner, nested) if statement is never executed.
+
+In sample C, only the word DNA occurs.
+
+```{r}
+sampleC <- "DNA from hESC cells"
+if ( grepl("DNA", sampleC) ) {
+  print("DNA extract")
+  if ( grepl("HEK293", sampleC) ) {
+    print("HEK293 cell line")
+  }
+}
+```
+
+The first (outer) if statement logical expression returns `TRUE`, so "DNA extract" is printed and the second (inner, nested) if statement is executed. However, this logical expression returns `FALSE`, thus, the message is not printed. 
+
+What if we had a new sample that only contained the word "HEK293" and not "DNA"?
+
+```{r}
+sampleD <- "RNA from HEK293 cells"
+if ( grepl("DNA", sampleD) ) {
+  print("DNA extract")
+  if ( grepl("HEK293", sampleD) ) {
+    print("HEK293 cell line")
+  }
+}
+```
+
+Although the sample is from HEK293 cells, no message is output. The second if statement is never executed because the first if statement returns `FALSE`.
+
+---
+
+### Nested Conditional Statements
+
+Any conditional statements can be nested. Here is an example of an if-else if-else statement nested within an if-else statement that checks whether a sample has a sufficient amount of DNA and purity (measured via the 280/260 purity ratio with a Nanodrop) for sequencing.
+
+Sample A contained 173 ng of DNA, with a purity ratio of 1.82.
+
+```{r}
+DNAamount <- 173
+purityR <- 1.82
+if ( DNAamount >= 100 ) {
+  if ( purityR < 1.7 ) {
+    print("Purity ratio too low")
+  } else if (purityR > 1.9 ) {
+    print("Purity ratio too high")
+  } else {
+    print("Proceed with sequencing")
+  }
+} else {
+  print("Insufficient DNA")
+}
+```
+
+The outer if-else statement checks if there is sufficient DNA for sequencing, if there is not, it prints "Insufficient DNA". If there is sufficient DNA it runs the code block following the if, which itself contains and if-else if-else statement. The three mutually exclusive options are:
+- the purity ratio is less than 1.7
+- the purity ratio is greater than 1.9
+- the purity ratio is between 1.7 and 1.9
+
+It only checks if the purity ratio is within the right window if there is sufficient DNA.
+
+---
+
+In the lab, you often have to change the pH of a solution. You have a 0.1 M solution of NaOH (base) and 0.1 M solution of HCl (acid) that you use for this. With the initial pH (current pH) of your solution, the final pH (goal pH), and the initial volume (in mL), you can do this calculation. However, depending on whether you want to increase or decrease the pH, you will need to add either NaOH or HCl with a different calculation.
+
+We can write nested if-else statements for the calculation. The outer if-else statement checks if the initial pH is the same as the final pH. If so, it outputs the message "No pH adjustment required", otherwise, it checks if the initial pH is less than the final pH, if so it does the calculation using the basic solution pH, else it does the calculation using the acidic solution pH.
+
+```{r}
+initial_pH <- 9.6
+final_pH <- 7.1
+initial_vol <- 1000
+
+if (initial_pH == final_pH) {
+  print("No pH adjustment required")
+} else {
+  if (initial_pH < final_pH) {
+    print("Add basic solution. Volume to add in mL:")
+    volume <- (initial_vol*10^-initial_pH - initial_vol*10^-final_pH)/
+      (0.1 + 10^-final_pH)
+    print(volume)
+  } else {
+    print("Add acidic solution. Volume to add in mL:")
+    volume <- (initial_vol*10^-final_pH - initial_vol*10^-initial_pH)/
+      (0.1 - 10^-final_pH)
+    print(volume)
+  }
+}
+```
+
+---
