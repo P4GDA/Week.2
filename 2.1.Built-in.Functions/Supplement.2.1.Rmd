@@ -1,1 +1,371 @@
-placeholder
+---
+title: "2.1 Built-in Functions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
+```
+
+---
+
+## 2.1.1: Introduction to Functions
+
+---
+
+### Functions
+
+A *function* is a set of pre-determined instructions that carries out a specific task. Functions take input values, called *arguments*, run a series of commands (the instructions) using the input values, and finally output the result of the commands, called the *return value*.
+
+        function_name(arguments)
+
+Terminology: When discussing functions and arguments, we say "arguments are *passed* to functions" and "functions *take* arguments". In other words: functions TAKE arguments that are PASSED to them.
+
+---
+
+### The print() Function
+
+To begin to explore functions and arguments, we will examine the `print()` function. The `print()` function simply prints out the argument it is passed.
+
+We can provide information about a function by providing:
+- a description of the task the function performs
+- the syntax that shows how the function is used, along with the names of the arguments (called the *usage*)
+- the names and descriptions of the function's arguments
+- a description of the return value
+
+The information for the `print()` function is as follows:
+
+Description: prints the argument it is passed
+Usage: print(x)
+Arguments: x - a value (any data type)
+Return value: x
+
+Executing the `print()` function with the argument 100 outputs the number 100:
+
+```{r}
+print(100)  
+```
+
+This function may not seem very useful now as the return value is is the same as simply executing `100` without using `print()`, but this function will become very useful in module 2.3 and later modules.
+
+The `print()` function can take an argument of any data type: character, numeric, or logical.
+
+```{r}
+print("Hello world!") 
+```
+
+```{r}
+print(FALSE)
+```
+
+So far we have passed three values to `print()` as arguments, but we can also pass values that have been assigned to variables:
+
+```{r}
+greeting <- "Hello world!"
+print(greeting) 
+```
+
+An argument can always be passed as a variable, because variables store values.
+
+---
+
+### Arguments with Specific Data Types
+
+Unlike the `print()` function, which can take values and variables of any type as an argument, some functions only work with certain data types.
+
+For example, the `sqrt()` function.
+
+Description: computes square root of a numeric value
+Usage: `sqrt(x)`
+Arguments: x - a numeric value
+Return value: the square root of x
+
+```{r}
+sqrt(9)
+```
+
+```{r}
+z <- 17830
+sqrt(z)
+```
+
+What happens if we try using character values? Can we take the square root of "hello"?
+
+```{r}
+sqrt("Hello world!")
+```
+
+No - it throws an error. The error states that this is a "mathematical function" and that a "non-numeric argument" was passed to it, i.e. it cannot take the square root of something that is not a number.
+
+Other functions have arguments that must be character values, like `tolower()`.
+
+Description: converts all uppercase letters in a character value to lowercase
+Usage: `tolower(x)`
+Arguments: `x` - a character value
+Return value: `x` in lowercase
+
+```{r}
+tolower("HeLLo WoRlD!")
+```
+
+---
+
+## 2.1.2: Function Arguments 
+
+---
+
+### Functions with Multiple Arguments
+
+We have looked at functions that take one argument, however there functions can take multiple arguments as well. Such as the function `round()`.
+
+`round()` takes 2 arguments:
+- a numeric value that you want to round
+- a numeric value dictating the number of digits after the decimal point to round to
+
+Description: computes the square root
+Usage: `round(x, digits = y)`
+Arguments: `x` - a numeric value to round
+           `y` - a numeric value dictating the number of digits
+Return value: the numeric value `x` rounded to `y` digits
+
+First, round 148.123528304 to 4 digits after the decimal point:
+
+```{r}
+round(148.123528304, digits = 4)
+```
+
+Now, to 2 digits after the decimal place:
+
+```{r}
+round(148.123528304, digits = 2)
+```
+
+---
+
+### Required vs. Optional Arguments
+
+Why is the `digits` argument entered as `digits=`, but the number to round is not?
+
+Functions have *required* arguments and *optional* arguments. Required arguments MUST be provided. Optional arguments do not have to be provided because they have *default values*. A default value is the value that will be used by the function for a optional argument if a different value is not passed to the function.
+
+How can you tell if an argument is required or optional? When you look at the usage, required arguments will only have the name of the argument, whereas optional argument names are followed by an equals sign and a value (this is the default value). 
+
+The usage for the `round()` function above was shown a bit differently from the real function usage. The usage for the `round()` function is normally written as: `round(x, digits = 0)`
+
+Therefore, `x` is a required argument and `digits` is an optional argument. The default value for `digits` in the `round()` function is 0. The digits argument only needs to be used if we want a different number of digits.
+
+What happens if `round()` is run without the required argument?
+
+```{r}
+round(digits=4)
+```
+
+If the required argument is not provided, an error is thrown. In this case it outputs an error message stating that argument `x` is missing and it does not have a default value. 
+
+Running a function without the optional argument will not throw an error:
+
+```{r}
+round(148.123528304)
+```
+
+The number 148.123528304 is rounded to a number with 0 digits after the decimal point because the default value of the optional `digits` argument is 0. 
+
+---
+
+### Help Pages
+
+How do we know what arguments a function takes and what the default values are? The help page for a function can be pulled up using a question mark:
+
+        ?function
+
+For example, to get more information about the `round()` function the help page can be pulled up with the following code:
+
+```{r}
+?round
+```
+
+A new page should have loaded on the right of your screen under the "Help" tab called "Rounding of Numbers". It has information about a number of functions including the `round()` function. There is a large amount of information in the page, but we will focus on a few key sections. 
+
+At the top of the page is information about the task each function performs under "Description":
+
+        "round rounds the values in its first argument to the specified number of decimal places (default 0). See ‘Details’ about “round to even” when rounding off a 5."
+
+The next section is "Usage" which provides the syntax of the function: 
+
+        "round(x, digits = 0)"
+
+Following the "Usage" is the "Arguments" section, which describes the arguments for the function. The two relevant arguments for `round()` are:
+
+        "x	a numeric vector. Or, for round and signif, a complex vector.
+        digits	integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed (see ‘Details’)."
+
+The arguments section is generally the hardest to interpret. `x` is described as a "vector". Vectors will be taught in module 3.1, for now, interpret the word "vector" as "value". Thus, we can see that it expects a numeric value for `x` and an integer value for `digits`.
+
+Note: A second option for pulling up help pages is by using the search bar at the top right corner of the Help tab.
+
+---
+
+### Required Arguments are Ordered
+
+Another function that uses multiple arguments is `gsub()`. Pull up the help page for the function.
+
+```{r}
+?gsub
+```
+
+From the description we can find out that `gsub()` can be used to find matches to a pattern and replace all occurrences of them - like the "find and replace" feature in word processors. The usage shows 7 arguments, 3 required and 4 optional:
+
+        "gsub(pattern, replacement, x, ignore.case = FALSE, perl = FALSE,
+        fixed = FALSE, useBytes = FALSE)"
+
+This is a rather complicated help page to follow as a beginner, so we will describe the three required arguments more plainly here:
+
+- pattern:     character value that you want to find in a string
+- replacement: character value that you replace occurrences of `pattern` with
+- x:           character value in which you want the finding and replacing performed
+
+For example, the following application of the `gsub()` function will replace all occurrences of the letter "A" with the letter "Z" in the character value: "AAA ZZZ AZA ZAZ"
+
+```{r}
+gsub("A", "Z", "AAA ZZZ AZA ZAZ")
+```
+
+What would happen if we switched the order of the "A" and the "Z" arguments in the function call?
+
+```{r}
+gsub("Z", "A", "AAA ZZZ AZA ZAZ")
+```
+
+Now all the "Z"s were replaced with "A"s. This is because "Z" was used in the place of the `pattern` argument and "A" was used in the place of the `replacement` argument. 
+
+**Arguments must be provided to a function in the order they are listed in the usage or the function will not work as you intend.**
+
+Finally, it is important to know that the output of a function can be saved as a variable directly. For example:
+
+```{r}
+sleep_sounds <- gsub("A", "Z", "AAA ZZZ AZA ZAZ")
+sleep_sounds
+```
+
+This is useful when you need to use the return value of a function for later analysis and calculations.
+
+---
+
+## 2.1.3: Nested Functions
+
+---
+
+### Data Type Functions
+
+Last week we learned about data types, but we were only determining what a data type was by eye - is it a number? Does it have quotation marks? Is it `TRUE` or `FALSE`?
+But there is a function for this: `typeof()`
+
+View the help page:
+
+```{r}
+?typeof
+```
+
+By reading the help page we can see that it takes any value and tells us what type it is. Let's try it.
+
+```{r}
+typeof(-49482.2)
+```
+
+Remember that numeric type is also called "double".
+
+```{r}
+typeof(FALSE)
+```
+
+```{r}
+greeting <- "Hello world!"
+typeof(greeting)
+```
+
+Another set of useful functions are the "is" functions. You can directly ask if an object is numeric type, logical type, etc. All of these functions return a logical - `TRUE` or `FALSE` because they ask a yes or no question.
+
+```{r}
+is.character(greeting)
+```
+
+```{r}
+is.numeric(greeting)
+```
+
+```{r}
+is.logical(greeting)
+```
+
+---
+
+### Nested Functions
+
+What do you think this line of code will return?
+
+```{r}
+is.character(typeof(TRUE))
+```
+
+Were you right? Let's breakdown how this happened.
+
+When functions are *nested* inside of one another, the one that is inside is executed first. In this case that would be `typeof(TRUE)`.
+
+```{r}
+typeof(TRUE)
+```
+
+This inner function returns "logical", which is a character value.
+
+The function on the outside is then applied to the return value of the function on the inner function. So: `is.character(typeof(TRUE))` is equivalent to `is.character("logical")`. Again, because "logical" is a character value, the outer function will return `TRUE`.
+
+Let's try another example with 3 functions nested. Try to predict the outcome before running the code.
+
+```{r}
+is.logical(typeof(is.numeric("RNA")))
+```
+
+`is.numeric("RNA")` returns `FALSE`, then
+`typeof(FALSE)` returns `"logical"`, then
+`is.logical("logical")` returns `FALSE`
+
+Why nest functions? Imagine we want to take the absolute value of a number and then round it. The function to take the absolute value in R is `abs()`:
+
+```{r}
+?abs
+```
+
+To take the absolute value of the number -9.234 and then round it, we could assign the result of the `abs()` function to a variable and then use the variable as the argument for the `round()` function:
+
+```{r}
+abs_number <- abs(-9.234)
+round(abs_number)
+```
+
+An extra variable that we do not need anymore was created in order to use both functions. Nested functions help us avoid taking up space in the R environment storing intermediate variables that we will not need again. Instead `abs()` can be nested inside of `round()`.
+
+```{r}
+round(abs(-9.234))
+```
+
+`abs(-9.234)` returns `9.234`, then
+`round(9.234)` returns `9`
+
+To help you understand this concept, here are two more examples of nested functions:
+
+```{r}
+gsub("ANS", sqrt(100), "The square root of 100 is ANS.")
+```
+
+`sqrt(100)` returns `10`, then
+`gsub("ANS", 10, "The square root of 100 is ANS.")` returns `"The square root of 100 is 10."`
+
+```{r}
+gsub("TYPE", typeof(sqrt(9)), "Return value is TYPE type.")
+```
+
+`sqrt(9)` returns `3`, then
+`typeof(3)` returns `"double"`, then
+`gsub("TYPE", "double", "Return value is TYPE type.")` returns `"Return value is double type."`
+
+---
