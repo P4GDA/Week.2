@@ -1,5 +1,5 @@
 ---
-title: "Week 2 Assignment"
+title: "Assignment 2"
 output: html_document
 ---
 
