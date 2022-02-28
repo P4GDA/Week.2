@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 
 ---
 
-## 2.2.1: Comparison Operators
+## 2.2.1 Comparison Operators
 
 ---
 
@@ -26,7 +26,7 @@ Logical expressions can be created using:
 
 ### Comparison Operators
 
-Logical expressions can be created with *comparison operators* (also referred to as relational operators), which are used to COMPARE (or learn the RELATIONship between) two values. There are 6 comparison operators:
+Logical expressions can be created with *comparison operators* (also referred to as relational operators), which are used to COMPARE (or learn the RELATIONship between) two values. There are six comparison operators:
 
 - greater than:               >
 - less than:                  <
@@ -67,7 +67,7 @@ Is “A” not equal to “B”?
 "A" != "B"
 ```
 
-Instead of using values directly, variables can be used in logical expressions, as variables store values:
+Instead of using values directly, variables can be used in logical expressions, because variables store values:
 
 ```{r}
 x <- 3
@@ -89,7 +89,7 @@ This evaluates to `FALSE` because "apple" comes before "banana" in alphabetical 
 
 **WARNING**
 
-When using the "equal to" comparison operator it is important to remember thatyou must use 2 equal signs, `==`, instead of a single equal sign, `=`. A single `=` will lead to variable assignment (like `<-`). A single equals sign in R is generally only used for specifying values for arguments when we use functions. 
+When using the "equal to" comparison operator it is important to remember that you must use two equal signs, `==`, instead of a single equal sign, `=`. A single `=` will lead to variable assignment (like `<-`). A single equals sign in R is generally only used for specifying values for arguments when we use functions. 
 
 Let's look at example of what would happen if we used `=` when we meant to use `==`. We will compare the values 5 and 6.
 
@@ -99,7 +99,7 @@ Let's look at example of what would happen if we used `=` when we meant to use `
 
 The error message mentions assignment, meaning R is trying to assign the value 6 to a new variable named 5. But, it cannot because, as we learned last week, variable names cannot start with a number. 
 
-R will prevent you from assigning the value 6 to the value 5, but if we were using variables it would turn out differently. First we will assign the value 5 to the variable `a`.
+R will prevent you from assigning the value 6 to the value 5, but if we were comparing variables it would turn out differently. First we will assign the value 5 to the variable `a`.
 
 ```{r}
 a <- 5
@@ -113,9 +113,9 @@ a = 6
 a
 ```
 
-Now our variable `a` has the value of 6 instead of 5. If you don't realize and use the `a` variable later on when you are coding, it will have the wrong value and will lead to incorrect calculations and analysis. 
+Now our variable `a` has the value of 6 instead of 5. If you don't realize and use the `a` variable later on when you are coding, it will have the wrong value and will lead to incorrect calculations and analyses. 
 
-Always be careful to use two equal signs when writing an "equals to" logical expression.
+Always be sure to use two equal signs when writing an "equals to" logical expression.
 
 ---
 
@@ -141,7 +141,7 @@ The use of unnecessary brackets for visual clarity becomes very useful as code b
 
 ---
 
-## 2.2.2: Logical Operators
+## 2.2.2 Logical Operators
 
 ---
 
@@ -169,7 +169,7 @@ NOT FALSE = TRUE
 
 In plain English, if something is not true, it must be false. If something is not false, it must be true.
 
-In Boolean algebra, *truth tables* can be used to show the rules of operators.
+In Boolean algebra, *truth tables* can be used to show the rules of operators:
 
 | x     | NOT x |
 | ----- | ----- |
@@ -191,15 +191,15 @@ We only need one variable for NOT, but with AND we are looking at two different 
 | FALSE | TRUE  | FALSE   |
 | FALSE | FALSE | FALSE   |
 
-In plain English, the first row translates to "if x is true and y is true, then the outcome of x and y is true". You will notice that the outcome in all other rows is FALSE, this is because both variables must equal TRUE for the expression to evaluate to TRUE.
+In plain English, the first row translates to "if x is true and y is true, then the outcome of x and y is true". You will notice that the outcome in all other rows is FALSE: this is because both variables must equal TRUE for the expression to evaluate to TRUE.
 
-Example: If someone asks you "Are you serving hamburgers AND hotdogs at the barbeque?", you would only say "Yes" if you are serving BOTH. Otherwise you would say "No, just hotdogs", "No, just hamburgers", or "No, we don't have either". 
+Example: If someone asks you "Are you serving hamburgers AND hot dogs at the barbeque?", you would only say "Yes" if you are serving BOTH. Otherwise you would say "No, just hot dogs", "No, just hamburgers", or "No, we don't have either". 
 
 **OR**
 
 OR is also referred to as the "disjunction", and is equivalent to the "union" in statistics. 
 
-With OR we are again looking at two different variables. Here is the truth table.
+With OR we are again looking at two different variables. Here is the truth table:
 
 | x     | y     | x OR y |
 | ----- | ----- | ------ |
@@ -210,22 +210,22 @@ With OR we are again looking at two different variables. Here is the truth table
 
 In plain English, the first row translates to "if x is true or y is true, then the outcome of x or y is true". This time the outcome in the first 3 rows is TRUE, and the last row evaluates to FALSE. With OR, as long as one of the two variables equals TRUE, the expression will evaluate to TRUE.
 
-The interpretation of OR, is different from the standard interpretation of the word "or" in English. For example, “I will have a burger or a hotdog” usually implies:
+The interpretation of OR is different from the standard interpretation of the word "or" in English. For example, “I will have a burger or a hot dog” usually implies:
         
-        “I will have a burger and not a hotdog, otherwise I will have a hotdog and not a burger.”
+        “I will have a burger and not a hot dog, otherwise I will have a hot dog and not a burger.”
 
 There are only two options:
-       1. burger = TRUE, hotdog = FALSE
-       2. burger = FALSE, hotdog = TRUE
+       1. burger = TRUE, hot dog = FALSE
+       2. burger = FALSE, hot dog = TRUE
        
 In Boolean algebra there is a third option:
-       1. burger = TRUE, hotdog = FALSE
-       2. burger = FALSE, hotdog = TRUE
-       3. burger = TRUE, hotdog = TRUE
+       1. burger = TRUE, hot dog = FALSE
+       2. burger = FALSE, hot dog = TRUE
+       3. burger = TRUE, hot dog = TRUE
 
 The English translation is: 
 
-“I will have a burger and not a hotdog, I will have a hotdog and not a burger, otherwise I will have a burger and a hotdog.”
+“I will have a burger and not a hot dog, I will have a hot dog and not a burger, otherwise I will have a burger and a hot dog.”
 
 **NOT, AND, OR: Summary**
 
@@ -262,13 +262,13 @@ Let's investigate them in R one by one.
 
 **NOT**
 
-Not `TRUE` is equivalent to `FALSE`.
+Not `TRUE` is equivalent to `FALSE`:
 
 ```{r}
 !TRUE
 ```
 
-And not `FALSE` is equivalent to `TRUE`.
+And not `FALSE` is equivalent to `TRUE`:
 
 ```{r}
 !FALSE
@@ -276,7 +276,7 @@ And not `FALSE` is equivalent to `TRUE`.
 
 **AND**
 
-The AND operator evaluates to `TRUE` if and only if the value on BOTH SIDES of the operator are `TRUE`.
+The AND operator evaluates to `TRUE` if and only if the value on BOTH SIDES of the operator are `TRUE`:
 
 ```{r}
 TRUE & TRUE
@@ -296,7 +296,7 @@ FALSE & FALSE
 
 **OR**
 
-The OR operator evaluates to `TRUE` as long as the value on AT LEAST ONE SIDE of operator is `TRUE`. 
+The OR operator evaluates to `TRUE` as long as the value on AT LEAST ONE SIDE of operator is `TRUE`:
 
 ```{r}
 TRUE | TRUE 
@@ -316,7 +316,7 @@ FALSE | FALSE
 
 ---
 
-## 2.2.3: Applying Logical Operators
+## 2.2.3 Applying Logical Operators
 
 ---
 
@@ -361,9 +361,9 @@ First R executes `"sample_1" == "sample_1"` which outputs `TRUE` and then the `!
 Mathematical operators are executed before comparison operators. 
 
 *Highest precedence*
-mathematical operators
-comparison operators
-logical operators
+  mathematical operators
+  comparison operators
+  logical operators
 *Lowest precedence*
 
 Below, the mathematical operator (`+`) will be executed, then the two comparison operators (`>` and `==`) will be executed, and finally the logical operator will be executed last.
@@ -461,16 +461,18 @@ grepl("RNA", sample_description) | grepl("DNA", sample_description)
 
 ---
 
-## 2.2.4: Complex Logical Expressions
+## 2.2.4 Complex Logical Expressions
+
+---
 
 ### Logical Operator Precedence
 
-For comparison operators, all 6 operators have the same precedence. Logical operators are different: `!` has the highest precedence, then `&`, then `|`. 
+For comparison operators, all six operators have the same precedence. Logical operators are different: `!` has the highest precedence, then `&`, then `|`. 
 
 *Highest precedence*
-NOT    `!`
-AND    `&`
-OR     `|`
+  NOT    `!`
+  AND    `&`
+  OR     `|`
 *Lowest precedence*
 
 Let's trace how the following code would be executed to understand the precedence rules:
@@ -491,7 +493,7 @@ Finally `|` operators will be executed (left to right):
         
         TRUE
 
-If you want the `|` operators to execute first, you must put them in brackets `()`, like with mathematical operators. The code within the brackets will be executed first - abiding by operator precedence within the brackets. 
+If you want the `|` operators to execute first, you must put them in brackets `()`, like with mathematical operators. The code within the brackets will be executed first, abiding by operator precedence within the brackets. 
 
 ```{r}
 (TRUE | !FALSE) & (TRUE | FALSE) & !TRUE
@@ -505,9 +507,9 @@ Remember to always be aware of operator precedence so that you get the outcome y
 
 ### Practical Applications of Logical Expressions
 
-A scientist has performed RNA-sequencing (RNA-seq) on a cell line to check if it is pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. The scientist measured the expression of the three transcription factors in RPKM*. 
+A scientist has performed RNA-sequencing (RNA-seq) on a cell line to check if it is pluripotent. Pluripotent cells can be identified by their expression of the transcription factors: OCT4, NANOG, and SOX2. The scientist measured the expression of the three transcription factors in RPKM. 
 
-*RPKM (reads per kilobase million) is a measurement of the expression level of gene transcripts normalized by the total number of RNA sequencing reads from a sample and the length of individual gene transcripts. RPKM measurements allow comparison of expression levels within a sample and between samples. 
+*RPKM (reads per kilobase million)* is a measurement of the expression level of gene transcripts normalized by the total number of RNA sequencing reads from a sample and the length of individual gene transcripts. RPKM measurements allow comparison of expression levels within a sample and between samples. 
 
 ```{r}
 OCT4 <- 1.02

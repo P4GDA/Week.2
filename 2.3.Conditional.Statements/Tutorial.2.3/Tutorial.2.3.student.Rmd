@@ -23,13 +23,13 @@ At the end of this tutorial you should be able to:
 
 ---
 
-## 2.3.1: If & If-else Statements
+## 2.3.1 If & If-else Statements
 
 ---
 
 “The IMPC is an international effort by 21 research institutions to identify the function of every protein-coding gene in the mouse genome.” (https://www.mousephenotype.org) To achieve this the IMPC knocks out each mouse gene individually and uses a panel of hundreds of standardized tests to assess mouse phenotypes, this includes, but is not limited to: assessment of behavioural tendencies, x-rays to examine the skeletal system, blood tests, and observations of morphological differences. These can be compared to control to determine which phenotypes are affected by the knocked out gene.
 
-In this tutorial we will work with data for 4 mice with the Ap4e1 gene knocked out (mutant mice), and data for 4 control mice. This table shows the results of a test to assess the hemoglobin content (in g/dL) along with an ID number, mouse sex, and group (mutant or control). 
+In this tutorial we will work with data for 4 mice with the Ap4e1 gene knocked out (mutant mice), and data for 4 control mice. This table shows the results of a test to assess the hemoglobin content (in g/dL) along with an ID number, mouse sex, and group (mutant or control):
 (Data from: https://www.mousephenotype.org)
 
 | ID # | Sex    | Group   | Hemoglobin (g/dL) |
@@ -75,7 +75,7 @@ mouse_8_hemo <- 14.9
 Write an if statement to check if mouse 1 is female and if so, prints "Mouse is female". Do not alter the line containing the code `check_mouse_1_sex <-` or otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_1_sex <-
+check_mouse_1_sex <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -100,7 +100,7 @@ Write an if statement to check if mouse 7 has a hemoglobin content greater than 
 Write an if statement to check if mouse 4 is male AND is a mutant mouse, if so print the hemoglobin content of the mouse. Do not alter the line containing the code `check_mouse_4 <-` or the otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_4 <-
+check_mouse_4 <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -113,7 +113,7 @@ check_mouse_4 <-
 Write an if-else statement that checks if mouse 6 is a mutant. If the mouse is a mutant, print "Mutant mouse", if it is not a mutant, print "Control mouse". Do not alter the line containing the code `check_mouse_6_mutant <-` or the otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_6_mutant <-
+check_mouse_6_mutant <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -153,19 +153,21 @@ Write an if-else statement that will:
 
 ---
 
-## 2.3.2: If-else if-else Statements
+## 2.3.2 If-else if-else Statements
 
 ---
 
 Write an if-else-if-else statement that does the following:
-If mouse 4 has a hemoglobin content < 14 g/dl, print "Hemoglobin < 14 g/dL".
-Else, if mouse 4 has a hemoglobin content >= 14 g/dl and < 15 g/dl, print "Hemoglobin >= 14 g/dL and < 15 g/dL". 
-Else, print "Hemoglobin >= 15 g/dL."
+If mouse 4 has a hemoglobin content < 14 g/dl, print: "Hemoglobin < 14 g/dL"
+Else, if mouse 4 has a hemoglobin content >= 14 g/dl and < 15 g/dl, print: "Hemoglobin >= 14 g/dL and < 15 g/dL"
+Else, print: "Hemoglobin >= 15 g/dL"
+
+Make sure you copy/paste exactly what is between the quotes above for each print statement (i.e., don't modify the print statements to something like `print("Heme < 14")` or `print("Hemoglobin<14g/dL")`.
 
 Write the statement WITHOUT using a logical expression containing `&`, and WITHOUT USING the comparison operators `>` and `>=` in your code (`>` and `>=` can appear in your print statements). Do not alter the line containing the code `check_mouse_4_hemo <-` or the otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_4_hemo <-
+check_mouse_4_hemo <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -218,14 +220,14 @@ Answer the following questions:
 
 ---
 
-## 2.3.3: Nested Conditional Statements
+## 2.3.3 Nested Conditional Statements
 
 ---
 
 Write an if statement nested within another if statement. If mouse 5 is female, check if mouse 5 is a control mouse, and then print "Mouse is a female control". Do not alter the line containing the code `check_mouse_5 <-` or the otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_5 <-
+check_mouse_5 <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -244,7 +246,7 @@ If the mouse is not a mutant, nothing should be printed.
 Do not alter the line containing the code `check_mouse_1_hemo <-` or otter grader will not be able to check your answer.
 
 ```{r}
-check_mouse_1_hemo <-
+check_mouse_1_hemo <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -256,10 +258,9 @@ check_mouse_1_hemo <-
 
 Use one or more conditional statements to write code that does the following:
 - Checks if mouse 8 is a mutant mouse or a control mouse, and calculates the absolute value of the difference from the group's mean hemoglobin content. This value should be assigned to a variable named "diff_from_group_mean" 
-- If the absolute value of the difference is > 1 standard deviation away from the group mean, the value `TRUE` is assigned to a variable named "over_1_sd", otherwise the value `FALSE` is assigned to a variable named "over_1_sd".
+- If the absolute value of the difference is greater than *one standard deviation away* from the group mean, the value `TRUE` is assigned to a variable named "over_one_sd"; otherwise the value `FALSE` is assigned to a variable named "over_one_sd".
 
-
-Necessary values for calculations:
+Note that each group has its *own mean* and its *own standard deviation* values below. Different values should be used when calculating if `diff_from_group_mean` > "one SD away", because the values for "one SD" are different for the two groups:
 
 | group   | mean  | standard deviation |
 | ------- | ----- | ------------------ |

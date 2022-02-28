@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_false(both_samples_protein)
+        expect_true(both_samples_protein)
       }
     )
   )

@@ -35,9 +35,9 @@ The ENCODE Project Consortium., Moore, J.E., Purcaro, M.J. et al. Expanded encyc
 
 Promoter and enhancer regions regulate the transcription of genes.
 
-- A promoter region is a sequence just upstream of the transcription start site (TSS) for a gene that enables transcription initiation. 
+- A *promoter region* is a sequence just upstream of the transcription start site (TSS) of a gene that enables transcription initiation. 
 
-- An enhancer region is a sequence that influences the rate of transcription of a particular gene. It does not have a specific location with respect to the gene it regulates, although they are cis-acting (on the same chromosome). A proximal enhancer is an enhancer that is close the TSS.
+- An *enhancer region* is a sequence that influences the rate of transcription of a particular gene. It does not have a specific location with respect to the gene it regulates, although they are cis-acting (on the same chromosome). A *proximal enhancer* is an enhancer that is close the TSS.
 
 Promoters and enhancers have the following characteristics:
 
@@ -49,30 +49,33 @@ Promoters and enhancers have the following characteristics:
 | H3K27ac level     | low             | high                 |
 
 
-- DHS: active promoter and enhancer regions contain DNAse I hypersensitivity sites (DHSs). In this data, a region that contains DHSs with have a "DHS" value of TRUE, indicating that it could be a promoter or an enhancer.
+- *DHS*: active promoter and enhancer regions contain DNAse I hypersensitivity sites (DHSs). In these data, regions that contain DHSs will have a "DHS" value of TRUE, indicating that the regions could be a promoter or an enhancer.
 
-- H3K4me3: a histone mark that is present at a HIGH level in promoter regions and a LOW level in enhancer regions
+- *H3K4me3*: a histone mark that is present at a HIGH level in promoter regions and a LOW level in enhancer regions
 
-- H3K27ac: a histone mark that is present at a LOW level in promoter regions and a HIGH level in enhancer regions
+- *H3K27ac*: a histone mark that is present at a LOW level in promoter regions and a HIGH level in enhancer regions
 
 We will start by examining three regions in the human genome: A, B, and C. Characteristics for these three regions will be assigned to the following variables (X represents A, B, or C):
 
-- "rX_dist_TSS"     distance from closest TSS (numeric)
-- "rX_DHS"          is it a DNAse I hypersensitivity site (logical)
-- "rX_H3K4me3"      level of H3K4me3: high or low (character)
-- "rX_H3K27ac"      level of H3K27ac: high or low (character)
+- `rX_dist_TSS`     distance from closest TSS (numeric)
+- `rX_DHS`          is it a DNAse I hypersensitivity site (logical)
+- `rX_H3K4me3`      level of H3K4me3: high or low (character)
+- `rX_H3K27ac`      level of H3K27ac: high or low (character)
 
 ```{r}
+# values for region A
 rA_dist_TSS <- 158
 rA_DHS <- TRUE
 rA_H3K4me3 <- "high"
 rA_H3K27ac <- "low"
 
+# values for region B
 rB_dist_TSS <- 192
 rB_DHS <- FALSE
 rB_H3K4me3 <- "low"
 rB_H3K27ac <- "low"
 
+# values for region C
 rC_dist_TSS <- 4729
 rC_DHS <- TRUE
 rC_H3K4me3 <- "low"
@@ -89,7 +92,8 @@ rC_H3K27ac <- "high"
 
 #### a. 
 (1 mark)
-Region A is closest to the TSS of the gene "MBNL1". Convert the variable defined below `rA_gene_lowercase` to uppercase letters using one of the functions we learned this week. Assign the value to a variable named "q.1.a".
+Region A is closest to the TSS of the gene "MBNL1". Convert the variable `rA_gene_lowercase` defined below to uppercase letters using one of the functions we learned this week. Assign the value to a variable named "q.1.a".
+
 ```{r Assignment.W2.1.a}
 rA_gene_lowercase <- "mbnl1"
 # Write and execute your code here
@@ -103,7 +107,8 @@ rA_gene_lowercase <- "mbnl1"
 
 #### b.
 (1 mark)
-Using one of the functions we learned this week, get the number of letters in the variable `rA_H3K27ac`. Assign the value to a variable named "q.1.b".
+Using one of the functions we learned this week, get the number of letters in the value saved to variable `rA_H3K27ac` (i.e., not in the variable name "rA_H3K27ac" itself). Assign the result to a variable named "q.1.b".
+
 ```{r Assignment.W2.1.b}
 # Write and execute your code here
 
@@ -116,7 +121,8 @@ Using one of the functions we learned this week, get the number of letters in th
 
 #### c. 
 (1 mark)
-The mean distance of regions A, B, and C from the TSS that closest to each of them is calculated below and assigned to the variable `mean_dist_TSS`. Using one of the functions we learned this week, round `mean_dist_TSS` to two digits after the decimal place. Assign the return value to a variable named "q.1.c".
+The mean distance of regions A, B, and C from the TSS that is closest to each of them is calculated below and assigned to the variable `mean_dist_TSS`. Using one of the functions we learned this week, round `mean_dist_TSS` to two digits after the decimal place. Assign the return value to a variable named "q.1.c".
+
 ```{r Assignment.W2.1.c}
 mean_dist_TSS <- (rA_dist_TSS + rB_dist_TSS + rC_dist_TSS)/3
 # Write and execute your code here
@@ -130,7 +136,8 @@ mean_dist_TSS <- (rA_dist_TSS + rB_dist_TSS + rC_dist_TSS)/3
 
 #### d.
 (2 marks)
-By nesting two functions that we learned this week, extract the 2nd and 3rd letters of `rC_H3K4me3` and output a logical value that indicates whether those 2 letters are also found in `rA_H3K27ac`. Assign the return value to a variable named "q.1.d".
+By nesting two functions that we learned this week, extract the 2nd and 3rd characters of the value saved to variable `rC_H3K4me3` and output a logical value that indicates whether those 2 letters are also found in the value saved to variable `rA_H3K27ac` (i.e., do not compare the variable names). Assign the return value to a variable named "q.1.d".
+
 ```{r Assignment.W2.1.d}
 # Write and execute your code here
 
@@ -150,6 +157,7 @@ By nesting two functions that we learned this week, extract the 2nd and 3rd lett
 Write a logical expression that answers the following question: Is region B close enough to a TSS for region B to be a promoter? 
 Remember: promoters must be within 200 bp of the TSS.
 Assign the return value of the logical expression to a variable named "q.2.a".
+
 ```{r Assignment.W2.2.a}
 # Write and execute your code here
 
@@ -164,6 +172,7 @@ Assign the return value of the logical expression to a variable named "q.2.a".
 (1 mark)
 Write a logical expression that answers the following question: Is the level of H3K27ac the same in region B as it is region C? 
 Assign the return value of the logical expression to a variable named "q.2.b".
+
 ```{r Assignment.W2.2.b}
 # Write and execute your code here
 
@@ -178,6 +187,7 @@ Assign the return value of the logical expression to a variable named "q.2.b".
 (1 mark)
 Write a logical expression that answers the following question: Is the distance of region C from the closest TSS greater than or equal to the distance from the closest TSS for region B? 
 Assign the return value of the logical expression to a variable named "q.2.c".
+
 ```{r Assignment.W2.2.c}
 # Write and execute your code here
 
@@ -192,6 +202,7 @@ Assign the return value of the logical expression to a variable named "q.2.c".
 (1 mark)
 Write a logical expression that answers the following question: Is region A close enough to a TSS for region A to be a promoter and is region B close enough to a TSS for region B to be a promoter?
 Assign the return value of the logical expression to a variable named "q.2.d".
+
 ```{r Assignment.W2.2.d}
 # Write and execute your code here
 
@@ -206,6 +217,7 @@ Assign the return value of the logical expression to a variable named "q.2.d".
 (1 mark)
 Write a logical expression that answers the following question: Do region B or region C have a high level of H3K27ac?
 Assign the return value of the logical expression to a variable named "q.2.e".
+
 ```{r Assignment.W2.2.e}
 # Write and execute your code here
 
@@ -220,6 +232,7 @@ Assign the return value of the logical expression to a variable named "q.2.e".
 (1 mark)
 Write a logical expression that answers the following question: Does region C NOT have a high level of H3K4me3 AND does it NOT have low level of H3K4me3?
 Assign the return value of the logical expression to a variable named "q.2.f".
+
 ```{r Assignment.W2.2.f}
 # Write and execute your code here
 
@@ -234,6 +247,7 @@ Assign the return value of the logical expression to a variable named "q.2.f".
 (2 marks)
 Write a logical expression that answers the following question: Do any of the regions (A, B, or C) NOT contain DNAse hypersentivity sites?
 Assign the return value of the logical expression to a variable named "q.2.g".
+
 ```{r Assignment.W2.2.g}
 # Write and execute your code here
 
@@ -246,8 +260,9 @@ Assign the return value of the logical expression to a variable named "q.2.g".
 
 #### h. 
 (2 marks)
-Write a logical expression that answers the following question: Do region A or region B contain DNAse hypersentivity sites AND do region A or region B have a high level of H3K27ac?
+Write a logical expression that answers the following question: Does region A or region B contain DNAse hypersentivity sites AND does region A or region B have a high level of H3K27ac?
 Assign the return value of the logical expression to a variable named "q.2.h".
+
 ```{r Assignment.W2.2.h}
 # Write and execute your code here
 
@@ -265,8 +280,9 @@ Assign the return value of the logical expression to a variable named "q.2.h".
 #### a. 
 (1 mark) 
 Write an if statement that checks if region C contains DNAse hypersensitivity sites and if it does, prints "Region is likely a promoter or an enhancer". Do not alter the line containing the code `q.3.a <-` or you will not receive a mark for this question.
+
 ```{r Assignment.W2.3.a}
-q.3.a <- 
+q.3.a <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -279,8 +295,9 @@ q.3.a <-
 #### b. 
 (1 mark)
 Write an if-else statement that checks if region B is within 200 base pairs of a TSS. If it is within 200 base pairs print "Region is potentially a promoter", otherwise print "Region cannot be a promoter". Do not alter the line containing the code `q.3.b <-` or you will not receive a mark for this question.
+
 ```{r Assignment.W2.3.b}
-q.3.b <- 
+q.3.b <- # Do not modify this line
 # Write and execute your code here
 
 ```
@@ -308,6 +325,7 @@ Here is a reminder of the characteristics of promoter and enhancer regions:
 | DHS               | TRUE            | TRUE                 |
 | H3K4me3 level     | high            | low                  |
 | H3K27ac level     | low             | high                 |
+
 ```{r Assignment.W2.3.c}
 rX_DHS <- TRUE
 rX_dist_TSS <- 398
@@ -324,12 +342,13 @@ rX_H3K27ac <- "high"
 
 #### d.
 (3 marks)
-Use one or more conditional statements to write code that checks if region C is an enhancer and if so, checks if it is a distal enhancer (> 2000 bases from the TSS) or a proximal enhancer (<= 2000 bases from the TSS). 
+Use one or more conditional statements to write code that checks if region C is an enhancer and if so, checks if it is a *distal enhancer* (> 2000 bases from the TSS) or a *proximal enhancer* (<= 2000 bases from the TSS). 
 
 - If the region is an enhancer, the value `TRUE` should be assigned to a variable named "is.enhancer".
 - If the region is NOT an enhancer, the value `FALSE` should be assigned to a variable named "is.enhancer".
 - If the region is an enhancer and the enhancer is distal, the value "distal" should be assigned to a variable named "enhancer.type".
 - If the region is an enhancer and the enhancer is proximal, the value "proximal" should be assigned to a variable named "enhancer.type".
+
 ```{r Assignment.W2.3.d}
 # Write and execute your code here
 

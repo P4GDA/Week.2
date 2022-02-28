@@ -9,13 +9,13 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 
 ---
 
-## 2.1.1: Introduction to Functions
+## 2.1.1 Introduction to Functions
 
 ---
 
 ### Functions
 
-A *function* is a set of pre-determined instructions that carries out a specific task. Functions take input values, called *arguments*, run a series of commands (the instructions) using the input values, and finally output the result of the commands, called the *return value*.
+A *function* is a set of pre-determined instructions that carry out a specific task. Functions take input values, called *arguments*, run a series of commands (the instructions) using the input values, and finally output the result of the commands, called the *return value*.
 
         function_name(arguments)
 
@@ -25,7 +25,7 @@ Terminology: When discussing functions and arguments, we say "arguments are *pas
 
 ### The print() Function
 
-To begin to explore functions and arguments, we will examine the `print()` function. The `print()` function simply prints out the argument it is passed.
+To begin to explore functions and arguments, we will examine the `print()` function. The `print()` function prints out the argument it is passed.
 
 We can provide information about a function by providing:
 - a description of the task the function performs
@@ -36,8 +36,8 @@ We can provide information about a function by providing:
 The information for the `print()` function is as follows:
 
 Description: prints the argument it is passed
-Usage: print(x)
-Arguments: x - a value (any data type)
+Usage: `print(x)`
+Arguments: `x` - a value (any data type)
 Return value: x
 
 Executing the `print()` function with the argument 100 outputs the number 100:
@@ -46,7 +46,7 @@ Executing the `print()` function with the argument 100 outputs the number 100:
 print(100)  
 ```
 
-This function may not seem very useful now as the return value is is the same as simply executing `100` without using `print()`, but this function will become very useful in module 2.3 and later modules.
+This function may not seem very useful now as the return value is the same as simply executing `100` without using `print()`, but this function will become very useful in module 2.3 and in later modules.
 
 The `print()` function can take an argument of any data type: character, numeric, or logical.
 
@@ -77,7 +77,7 @@ For example, the `sqrt()` function.
 
 Description: computes square root of a numeric value
 Usage: `sqrt(x)`
-Arguments: x - a numeric value
+Arguments: `x` - a numeric value
 Return value: the square root of x
 
 ```{r}
@@ -110,7 +110,7 @@ tolower("HeLLo WoRlD!")
 
 ---
 
-## 2.1.2: Function Arguments 
+## 2.1.2 Function Arguments 
 
 ---
 
@@ -144,7 +144,7 @@ round(148.123528304, digits = 2)
 
 ### Required vs. Optional Arguments
 
-Why is the `digits` argument entered as `digits=`, but the number to round is not?
+Why is the `digits` argument entered as `digits = `, but the number to round is not?
 
 Functions have *required* arguments and *optional* arguments. Required arguments MUST be provided. Optional arguments do not have to be provided because they have *default values*. A default value is the value that will be used by the function for a optional argument if a different value is not passed to the function.
 
@@ -157,7 +157,7 @@ Therefore, `x` is a required argument and `digits` is an optional argument. The 
 What happens if `round()` is run without the required argument?
 
 ```{r}
-round(digits=4)
+round(digits = 4)
 ```
 
 If the required argument is not provided, an error is thrown. In this case it outputs an error message stating that argument `x` is missing and it does not have a default value. 
@@ -199,7 +199,7 @@ Following the "Usage" is the "Arguments" section, which describes the arguments 
         "x	a numeric vector. Or, for round and signif, a complex vector.
         digits	integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed (see ‘Details’)."
 
-The arguments section is generally the hardest to interpret. `x` is described as a "vector". Vectors will be taught in module 3.1, for now, interpret the word "vector" as "value". Thus, we can see that it expects a numeric value for `x` and an integer value for `digits`.
+The arguments section is generally the hardest to interpret. `x` is described as a "vector". Vectors will be taught in module 3.1, but for now, interpret the word "vector" as "value". Thus, we can see that it expects a numeric value for `x` and an integer value for `digits`.
 
 Note: A second option for pulling up help pages is by using the search bar at the top right corner of the Help tab.
 
@@ -207,7 +207,7 @@ Note: A second option for pulling up help pages is by using the search bar at th
 
 ### Required Arguments are Ordered
 
-Another function that uses multiple arguments is `gsub()`. Pull up the help page for the function.
+Another function that uses multiple arguments is `gsub()`. Pull up the help page for the function:
 
 ```{r}
 ?gsub
@@ -251,7 +251,7 @@ This is useful when you need to use the return value of a function for later ana
 
 ---
 
-## 2.1.3: Nested Functions
+## 2.1.3 Nested Functions
 
 ---
 
@@ -266,7 +266,7 @@ View the help page:
 ?typeof
 ```
 
-By reading the help page we can see that it takes any value and tells us what type it is. Let's try it.
+By reading the help page we can see that it takes any value and tells us what type it is. Let's try it:
 
 ```{r}
 typeof(-49482.2)
@@ -319,7 +319,7 @@ This inner function returns "logical", which is a character value.
 
 The function on the outside is then applied to the return value of the function on the inner function. So: `is.character(typeof(TRUE))` is equivalent to `is.character("logical")`. Again, because "logical" is a character value, the outer function will return `TRUE`.
 
-Let's try another example with 3 functions nested. Try to predict the outcome before running the code.
+Let's try another example with three functions nested. Try to predict the outcome before running the code.
 
 ```{r}
 is.logical(typeof(is.numeric("RNA")))
@@ -342,7 +342,7 @@ abs_number <- abs(-9.234)
 round(abs_number)
 ```
 
-An extra variable that we do not need anymore was created in order to use both functions. Nested functions help us avoid taking up space in the R environment storing intermediate variables that we will not need again. Instead `abs()` can be nested inside of `round()`.
+An extra variable that we do not need anymore was created in order to use both functions. Nested functions help us avoid taking up space in the R environment from storing intermediate variables that we will not need again. Instead, `abs()` can be nested inside of `round()`:
 
 ```{r}
 round(abs(-9.234))

@@ -6,7 +6,7 @@ test = list(
       name = NA,
       points = 1.0,
       code = {
-        expect_equal(round(nest_2, 6), 5.111854)
+        expect_equal(nest_2, 5)
       }
     )
   )

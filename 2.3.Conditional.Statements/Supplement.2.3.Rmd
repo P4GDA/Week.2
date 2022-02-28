@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE, error = TRUE, warning = TRUE)
 
 ---
 
-## 2.3.1: If & If-else Statements
+## 2.3.1 If & If-else Statements
 
 ---
 
@@ -41,9 +41,9 @@ The *if statement* is a conditional statement. An if statement follows the "if P
         ...code block...
     }
 
-*IF* the logical expression in the brackets returns `TRUE`, *THEN* the code inside the curly braces `{}` (represented by `...code block...`) will be executed.Note that there is a tab before the `...code block...`. In R, when code is written within curly braces, it is tabbed out for clarity. 
+*IF* the logical expression in the brackets returns `TRUE`, *THEN* the code inside the curly braces `{}` (represented by `...code block...`) will be executed. Note that there is a tab before the `...code block...`. In R, when code is written within curly braces, it is tabbed out (indented) for clarity. 
 
-Let's look at a very simple example. We will create an if statement that outputs the message "x is negative" if the number `x` is less than 0.
+Let's look at a simple example. We will create an if statement that outputs the message "x is negative" if the number `x` is less than 0.
 
 In other words: *IF* x is negative, *THEN* output a message to the user.
 
@@ -81,7 +81,7 @@ An if statement only executes code if the logical expression outputs `TRUE`. The
         ...code block B...
     }
 
-*IF* the logical expression in the brackets returns `TRUE`, *THEN* code block A is executed. *ELSE* (if the logical expression returns `FALSE`), code block B is executed.
+*IF* the logical expression in the brackets returns `TRUE`, *THEN* code block A is executed. *ELSE* (if the logical expression returns `FALSE`), code block B is executed instead.
 
 Let's go back to our earlier example. If a number is not negative, it must be 0 or positive, therefore the code within the `else` curly braces will only be run if x >= 0.
 
@@ -113,15 +113,15 @@ It executes the code within the `else` curly braces.
 
 ---
 
-## 2.3.2: If-else if-else Statements
+## 2.3.2 If-else if-else Statements
 
 ---
 
 ### If-else if-else Statements
 
-If statements are used for 2 mutually exclusive possibilities defined by a logical expression, but code is only executed for only one possibility - when the logical expression returns `TRUE`.
+If statements are used for 2 mutually exclusive possibilities defined by a logical expression, but code is only executed for only one possibility: when the logical expression returns `TRUE`.
 
-If-else statements are used for 2 mutually exclusive possibilities defined by a logical expression, and code is executed for both possibilities - different code when the logical expression returns `TRUE` vs `FALSE`.
+If-else statements are used for 2 mutually exclusive possibilities defined by a logical expression, and code is executed for both possibilities: different code when the logical expression returns `TRUE` vs `FALSE`.
 
 *If-else if-else statements* are used for N mutually exclusive possibilities defined by multiple logical expressions, and code is executed for all possibilities.
 
@@ -138,9 +138,9 @@ An "if-else if-else" statement is written in this format:
         ...code block N...
     }
 
-*IF* logical expression A returns `TRUE`, *THEN* code block A will be executed, *ELSE IF* logical expression B returns `TRUE`, *THEN* code block B will be executed, *ELSE IF* logical expression C returns `TRUE`, *THEN* code block C will be executed, ... etc ... *ELSE* (if ALL of the logical expressions return `FALSE`), execute code block N.
+*IF* logical expression A returns `TRUE`, *THEN* code block A will be executed, *ELSE IF* logical expression B returns `TRUE`, *THEN* code block B will be executed, *ELSE IF* logical expression C returns `TRUE`, *THEN* code block C will be executed, ... etc ... *ELSE* (if ALL of the previous logical expressions return `FALSE`), execute code block N.
 
-Only one of the code blocks will ever be run. As soon as one logical expression returns `TRUE`, the following code block will be run and no more logical expressions will be executed. In the case that no logical expressions return `TRUE`, the code in the final block will be executed (the code following "else").
+Only one of the code blocks will ever be run. As soon as one logical expression returns `TRUE`, the corresponding code block will be run and no more logical expressions will be executed. In the case that no logical expressions return `TRUE`, the code in the final block will be executed (the code following "else").
 
 It is helpful to think of if and if-else statements as dealing with binary situations, and if-else if-else statements as dealing with situations with multiple options.
 
@@ -220,7 +220,7 @@ Thus, it is important to be cautious if your options are not mutually exclusive.
 
 ---
 
-## 2.3.3: Nested Conditional Statements
+## 2.3.3 Nested Conditional Statements
 
 ---
 
@@ -259,7 +259,7 @@ Numerator is NOT divisible by denominator:
 4 %% 3
 ```
 
-Now let's write our if statement. The logical expression here translates to "If the number of bases divided by 3 does not return 0" in other words, if the number is not divisible by 3.
+Now let's write our if statement. The logical expression here translates to "If the number of bases divided by 3 does not return 0"; in other words, if the number is not divisible by 3.
 
 ```{r}
 coding_sequence <- "ATGACGTTTTACGGAC"
@@ -301,7 +301,7 @@ It is important to remember that variables can be assigned within conditional st
 
 ### Nested If Statements
 
-If statements can be nested within one another. One if statement can placed within the code block of another. For example:
+If statements can be nested within one another: one if statement can placed within the code block of another. For example:
 
 ```{r}
 sampleA <- "DNA from HEK293 cells."
@@ -392,7 +392,7 @@ if ( DNAamount >= 100 ) {
 }
 ```
 
-The outer if-else statement checks if there is sufficient DNA for sequencing, if there is not, it prints "Insufficient DNA". If there is sufficient DNA it runs the code block following the if, which itself contains and if-else if-else statement. The three mutually exclusive options are:
+The outer if-else statement checks if there is sufficient DNA for sequencing, and if there is not, it prints "Insufficient DNA". If there is sufficient DNA it runs the code block following the if, which itself contains and if-else if-else statement. The three mutually exclusive options are:
 - the purity ratio is less than 1.7
 - the purity ratio is greater than 1.9
 - the purity ratio is between 1.7 and 1.9
@@ -403,7 +403,7 @@ It only checks if the purity ratio is within the right window if there is suffic
 
 In the lab, you often have to change the pH of a solution. You have a 0.1 M solution of NaOH (base) and 0.1 M solution of HCl (acid) that you use for this. With the initial pH (current pH) of your solution, the final pH (goal pH), and the initial volume (in mL), you can do this calculation. However, depending on whether you want to increase or decrease the pH, you will need to add either NaOH or HCl with a different calculation.
 
-We can write nested if-else statements for the calculation. The outer if-else statement checks if the initial pH is the same as the final pH. If so, it outputs the message "No pH adjustment required", otherwise, it checks if the initial pH is less than the final pH, if so it does the calculation using the basic solution pH, else it does the calculation using the acidic solution pH.
+We can write nested if-else statements for the calculation. The outer if-else statement checks if the initial pH is the same as the final pH. If so, it outputs the message "No pH adjustment required"; otherwise, it checks if the initial pH is less than the final pH; if so, it does the calculation using the basic solution pH; else it does the calculation using the acidic solution pH.
 
 ```{r}
 initial_pH <- 9.6
